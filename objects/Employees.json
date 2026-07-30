@@ -1,0 +1,127 @@
+{
+  "definitions": {
+    "Employees": {
+      "kind": "entity",
+      "@EndUserText.label": "Employees",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "EMPLOYEEID": {
+          "@EndUserText.label": "EMPLOYEEID",
+          "type": "cds.String",
+          "length": 10,
+          "key": true,
+          "notNull": true
+        },
+        "NAME_FIRST": {
+          "@EndUserText.label": "NAME_FIRST",
+          "type": "cds.String",
+          "length": 40
+        },
+        "NAME_MIDDLE": {
+          "@EndUserText.label": "NAME_MIDDLE",
+          "type": "cds.String",
+          "length": 40
+        },
+        "NAME_LAST": {
+          "@EndUserText.label": "NAME_LAST",
+          "type": "cds.String",
+          "length": 40
+        },
+        "NAME_INITIALS": {
+          "@EndUserText.label": "NAME_INITIALS",
+          "type": "cds.String",
+          "length": 10
+        },
+        "SEX": {
+          "@EndUserText.label": "SEX",
+          "type": "cds.String",
+          "length": 1
+        },
+        "LANGUAGE": {
+          "@EndUserText.label": "LANGUAGE",
+          "type": "cds.String",
+          "length": 2
+        },
+        "PHONENUMBER": {
+          "@EndUserText.label": "PHONENUMBER",
+          "type": "cds.String",
+          "length": 30
+        },
+        "EMAILADDRESS": {
+          "@EndUserText.label": "EMAILADDRESS",
+          "type": "cds.String",
+          "length": 255
+        },
+        "LOGINNAME": {
+          "@EndUserText.label": "LOGINNAME",
+          "type": "cds.String",
+          "length": 12
+        },
+        "ADDRESSID": {
+          "@EndUserText.label": "ADDRESSID",
+          "type": "cds.String",
+          "length": 10
+        },
+        "VALIDITY_STARTDATE": {
+          "@EndUserText.label": "VALIDITY_STARTDATE",
+          "type": "cds.Date"
+        },
+        "VALIDITY_ENDDATE": {
+          "@EndUserText.label": "VALIDITY_ENDDATE",
+          "type": "cds.Date",
+          "key": true,
+          "notNull": true
+        }
+      }
+    }
+  },
+  "sharing": {
+    "Employees": {
+      "targetSpaces": [
+        "SAP_DISCOVERY_DAYS",
+        "DISCOVERY_DAYS_DU_30",
+        "DISCOVERY_DAYS_DU_04",
+        "DISCOVERY_DAYS_DU_05",
+        "DISCOVERY_DAYS_DU_06",
+        "DISCOVERY_DAYS_DU_10",
+        "DISCOVERY_DAYS_DU_08",
+        "DISCOVERY_DAYS_DU_07",
+        "DISCOVERY_DAYS_DU_11",
+        "DISCOVERY_DAYS_DU_12",
+        "DISCOVERY_DAYS_DU_13",
+        "DISCOVERY_DAYS_DU_14",
+        "DISCOVERY_DAYS_DU_15",
+        "DISCOVERY_DAYS_DU_17",
+        "DISCOVERY_DAYS_DU_18",
+        "DISCOVERY_DAYS_DU_19",
+        "DISCOVERY_DAYS_DU_20",
+        "DISCOVERY_DAYS_DU_25",
+        "DISCOVERY_DAYS_DU_24",
+        "DISCOVERY_DAYS_DU_23",
+        "DISCOVERY_DAYS_DU_22",
+        "DISCOVERY_DAYS_DU_21",
+        "DISCOVERY_DAYS_DU_33",
+        "DISCOVERY_DAYS_DU_26",
+        "DISCOVERY_DAYS_DU_27",
+        "DISCOVERY_DAYS_DU_28",
+        "DISCOVERY_DAYS_DU_29",
+        "DISCOVERY_DAYS_DU_31",
+        "DISCOVERY_DAYS_DU_32",
+        "DISCOVERY_DAYS_DU_34",
+        "DISCOVERY_DAYS_DU_35",
+        "DISCOVERY_DAYS_DU_01",
+        "DISCOVERY_DAYS_DU_09",
+        "DISCOVERY_DAYS_DU_03",
+        "DISCOVERY_DAYS_DU_16",
+        "DISCOVERY_DAYS_DU_02"
+      ]
+    }
+  }
+}
