@@ -1,0 +1,288 @@
+{
+  "definitions": {
+    "2LIS_11_VAHDR": {
+      "kind": "entity",
+      "@EndUserText.label": "Sales Document Header (2LIS_11_VAHDR) - Local Table",
+      "@ObjectModel.modelingPattern": {
+        "#": "DIMENSION"
+      },
+      "@ObjectModel.representativeKey": "VBELN",
+      "@DataWarehouse.externalObject": true,
+      "elements": {
+        "ROCANCEL": {
+          "@EndUserText.label": "Cancellation Flag",
+          "type": "cds.String",
+          "length": 1
+        },
+        "VBELN": {
+          "@EndUserText.label": "Sales Document Number",
+          "type": "cds.String",
+          "length": 10,
+          "key": true
+        },
+        "BUCHK": {
+          "@EndUserText.label": "Credit Check",
+          "type": "cds.String",
+          "length": 1
+        },
+        "AUART": {
+          "@EndUserText.label": "Sales Document Type",
+          "type": "cds.String",
+          "length": 4
+        },
+        "AUGRU": {
+          "@EndUserText.label": "Order Reason",
+          "type": "cds.String",
+          "length": 3
+        },
+        "BUKRS": {
+          "@EndUserText.label": "Company Code",
+          "type": "cds.String",
+          "length": 4
+        },
+        "ERDAT": {
+          "@EndUserText.label": "Creation Date",
+          "type": "cds.Date"
+        },
+        "FAKSK": {
+          "@EndUserText.label": "Billing Block",
+          "type": "cds.String",
+          "length": 2
+        },
+        "HWAER": {
+          "@EndUserText.label": "Local Currency",
+          "type": "cds.String",
+          "length": 5
+        },
+        "KUNNR": {
+          "@EndUserText.label": "Customer Number",
+          "type": "cds.String",
+          "length": 10
+        },
+        "KURST": {
+          "@EndUserText.label": "Exchange Rate Type",
+          "type": "cds.String",
+          "length": 4
+        },
+        "KVGR1": {
+          "@EndUserText.label": "Customer Group 1",
+          "type": "cds.String",
+          "length": 3
+        },
+        "KVGR2": {
+          "@EndUserText.label": "Customer Group 2",
+          "type": "cds.String",
+          "length": 3
+        },
+        "KVGR3": {
+          "@EndUserText.label": "Customer Group 3",
+          "type": "cds.String",
+          "length": 3
+        },
+        "KVGR4": {
+          "@EndUserText.label": "Customer Group 4",
+          "type": "cds.String",
+          "length": 3
+        },
+        "KVGR5": {
+          "@EndUserText.label": "Customer Group 5",
+          "type": "cds.String",
+          "length": 3
+        },
+        "LIFSK": {
+          "@EndUserText.label": "Delivery Block",
+          "type": "cds.String",
+          "length": 2
+        },
+        "PVRTNR": {
+          "@EndUserText.label": "Sales Employee",
+          "type": "cds.String",
+          "length": 10
+        },
+        "STWAE": {
+          "@EndUserText.label": "Statistics Currency",
+          "type": "cds.String",
+          "length": 5
+        },
+        "VBTYP": {
+          "@EndUserText.label": "Sales Document Category",
+          "type": "cds.String",
+          "length": 1
+        },
+        "VDATU": {
+          "@EndUserText.label": "Requested Delivery Date",
+          "type": "cds.Date"
+        },
+        "VKBUR": {
+          "@EndUserText.label": "Sales Office",
+          "type": "cds.String",
+          "length": 4
+        },
+        "VKGRP": {
+          "@EndUserText.label": "Sales Group",
+          "type": "cds.String",
+          "length": 3
+        },
+        "VKORG": {
+          "@EndUserText.label": "Sales Organization",
+          "type": "cds.String",
+          "length": 4
+        },
+        "VTWEG": {
+          "@EndUserText.label": "Distribution Channel",
+          "type": "cds.String",
+          "length": 2
+        },
+        "WAERK": {
+          "@EndUserText.label": "Document Currency",
+          "type": "cds.String",
+          "length": 5
+        },
+        "AEDAT": {
+          "@EndUserText.label": "Last Changed Date",
+          "type": "cds.Date"
+        },
+        "AUDAT": {
+          "@EndUserText.label": "Document Date",
+          "type": "cds.Date"
+        },
+        "AUFNR": {
+          "@EndUserText.label": "CO Order Number",
+          "type": "cds.String",
+          "length": 12
+        },
+        "AUTLF": {
+          "@EndUserText.label": "Complete Delivery",
+          "type": "cds.String",
+          "length": 1
+        },
+        "BSARK": {
+          "@EndUserText.label": "Customer Purchase Order Type",
+          "type": "cds.String",
+          "length": 4
+        },
+        "CMWAE": {
+          "@EndUserText.label": "Credit Management Currency",
+          "type": "cds.String",
+          "length": 5
+        },
+        "ERNAM": {
+          "@EndUserText.label": "Created By",
+          "type": "cds.String",
+          "length": 12
+        },
+        "ERZET": {
+          "@EndUserText.label": "Creation Time",
+          "type": "cds.Time"
+        },
+        "KOKRS": {
+          "@EndUserText.label": "Controlling Area",
+          "type": "cds.String",
+          "length": 4
+        },
+        "KOSTL": {
+          "@EndUserText.label": "Cost Center",
+          "type": "cds.String",
+          "length": 10
+        },
+        "KTEXT": {
+          "@EndUserText.label": "Description",
+          "type": "cds.String",
+          "length": 40
+        },
+        "LAND1": {
+          "@EndUserText.label": "Country Key",
+          "type": "cds.String",
+          "length": 3
+        },
+        "LAST_CHANGED_BY_USER": {
+          "@EndUserText.label": "Last Changed By",
+          "type": "cds.String",
+          "length": 12
+        },
+        "MANDT": {
+          "@EndUserText.label": "Client",
+          "type": "cds.String",
+          "length": 3
+        },
+        "NETWR": {
+          "@EndUserText.label": "Net Value",
+          "type": "cds.DecimalFloat"
+        },
+        "OBJNR": {
+          "@EndUserText.label": "Object Number",
+          "type": "cds.String",
+          "length": 22
+        },
+        "PKUNRE": {
+          "@EndUserText.label": "Bill-to Party",
+          "type": "cds.String",
+          "length": 10
+        },
+        "PKUNRG": {
+          "@EndUserText.label": "Payer",
+          "type": "cds.String",
+          "length": 10
+        },
+        "PKUNWE": {
+          "@EndUserText.label": "Ship-to Party",
+          "type": "cds.String",
+          "length": 10
+        },
+        "SPART": {
+          "@EndUserText.label": "Division",
+          "type": "cds.String",
+          "length": 2
+        },
+        "UPD_TMSTMP": {
+          "@EndUserText.label": "Update Timestamp",
+          "type": "cds.Decimal",
+          "precision": 21,
+          "scale": 0
+        },
+        "VSBED": {
+          "@EndUserText.label": "Shipping Conditions",
+          "type": "cds.String",
+          "length": 2
+        },
+        "VSNMR_V": {
+          "@EndUserText.label": "Version Number",
+          "type": "cds.String",
+          "length": 10
+        },
+        "SPARA": {
+          "@EndUserText.label": "Parallel Processing",
+          "type": "cds.String",
+          "length": 10
+        },
+        "ANZAU": {
+          "@EndUserText.label": "Number of Orders",
+          "type": "cds.Decimal",
+          "precision": 17,
+          "scale": 3
+        },
+        "PERIV": {
+          "@EndUserText.label": "Fiscal Year Variant",
+          "type": "cds.String",
+          "length": 2
+        },
+        "ZZSALES_PERSON": {
+          "@EndUserText.label": "Sales Person",
+          "type": "cds.String",
+          "length": 20
+        },
+        "ODQ_CHANGEMODE": {
+          "@EndUserText.label": "ODQ Change Mode",
+          "type": "cds.String",
+          "length": 1
+        },
+        "ODQ_ENTITYCNTR": {
+          "@EndUserText.label": "ODQ Entity Counter",
+          "type": "cds.Decimal",
+          "precision": 17,
+          "scale": 0
+        }
+      }
+    }
+  }
+}
