@@ -1,0 +1,78 @@
+{
+  "definitions": {
+    "Cost_GL": {
+      "kind": "entity",
+      "elements": {
+        "SAKNR": {
+          "@EndUserText.label": "SAKNR",
+          "type": "cds.Integer64"
+        },
+        "SPRAS": {
+          "@EndUserText.label": "SPRAS",
+          "type": "cds.String",
+          "length": 5000
+        },
+        "TXT20": {
+          "@EndUserText.label": "TXT20",
+          "type": "cds.String",
+          "length": 5000
+        },
+        "TXT50": {
+          "@EndUserText.label": "TXT50",
+          "type": "cds.String",
+          "length": 5000
+        }
+      },
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "RACCT_T"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "SAKNR"
+              ]
+            },
+            {
+              "ref": [
+                "SPRAS"
+              ]
+            },
+            {
+              "ref": [
+                "TXT20"
+              ]
+            },
+            {
+              "ref": [
+                "TXT50"
+              ]
+            }
+          ]
+        }
+      },
+      "@EndUserText.label": "Cost_GL",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "@DataWarehouse.consumption.external": false
+    }
+  },
+  "editorSettings": {
+    "Cost_GL": {
+      "editor": {
+        "lastModifier": "GRAPHICALVIEWBUILDER",
+        "default": "GRAPHICALVIEWBUILDER"
+      },
+      "uiModel": "{\"contents\":{\"653a1662-99ff-478e-8432-95215bd076ea\":{\"classDefinition\":\"sap.cdw.querybuilder.Model\",\"name\":\"Cost_GL\",\"label\":\"Cost_GL\",\"modificationDate\":0,\"deploymentDate\":0,\"#objectStatus\":0,\"output\":\"4ec5bac3-db42-454f-8cc2-4dc079268198\",\"nodes\":{\"4ec5bac3-db42-454f-8cc2-4dc079268198\":{\"name\":\"View_1\"},\"436bdd68-e58d-4c20-a2c9-585bead7bf89\":{\"name\":\"RACCT_T\"}},\"diagrams\":{\"a9ea3960-0be7-448e-921c-491e36ba757b\":{}}},\"4ec5bac3-db42-454f-8cc2-4dc079268198\":{\"classDefinition\":\"sap.cdw.querybuilder.Output\",\"name\":\"View_1\",\"type\":\"graphicView\",\"isDeltaOutboundOn\":false,\"isDeletionVector\":false,\"isPinToMemoryEnabled\":false,\"isAllowConsumption\":false,\"modificationDate\":0,\"deploymentDate\":0,\"#objectStatus\":0,\"elements\":{\"e10af33a-018f-4990-bdc1-df016c4645e7\":{\"name\":\"SAKNR\"},\"46b6094b-9cbb-4c75-ab23-89c1239318a4\":{\"name\":\"SPRAS\"},\"a0586582-800f-40f9-b904-0c9b9540d0a6\":{\"name\":\"TXT20\"},\"721b4e0a-cea6-45d1-9721-653153e6e509\":{\"name\":\"TXT50\"}}},\"a9ea3960-0be7-448e-921c-491e36ba757b\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.Diagram\",\"symbols\":{\"3fdafa78-b17c-4572-bbbf-278f16925cac\":{},\"39f3db64-1d8b-459a-9bd6-d95f5af5932b\":{\"name\":\"Entity Symbol 1\"},\"c483e7af-b1ec-4f8a-80fb-e381d9f49876\":{}}},\"3fdafa78-b17c-4572-bbbf-278f16925cac\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.OutputSymbol\",\"x\":47,\"y\":-20,\"width\":140,\"height\":40,\"object\":\"4ec5bac3-db42-454f-8cc2-4dc079268198\"},\"436bdd68-e58d-4c20-a2c9-585bead7bf89\":{\"classDefinition\":\"sap.cdw.querybuilder.Entity\",\"name\":\"RACCT_T\",\"label\":\"RACCT_T\",\"type\":9,\"isDeltaOutboundOn\":false,\"isDeletionVector\":false,\"isPinToMemoryEnabled\":false,\"isAllowConsumption\":false,\"isHiddenInUi\":false,\"modificationDate\":0,\"deploymentDate\":1779967438000,\"#objectStatus\":\"1\",\"elements\":{\"82ce18ed-0f03-4355-b02d-087c2dd45242\":{\"name\":\"SAKNR\"},\"0d38b62b-c547-48d5-912e-5733ab7559f0\":{\"name\":\"SPRAS\"},\"71b0ad15-d56a-43e7-90eb-dc0a2a06ab1a\":{\"name\":\"TXT20\"},\"9906b63c-5c64-47a8-9309-f48c9baba069\":{\"name\":\"TXT50\"}},\"successorNode\":\"4ec5bac3-db42-454f-8cc2-4dc079268198\"},\"82ce18ed-0f03-4355-b02d-087c2dd45242\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SAKNR\",\"label\":\"SAKNR\",\"newName\":\"SAKNR\",\"indexOrder\":0,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"e10af33a-018f-4990-bdc1-df016c4645e7\"},\"0d38b62b-c547-48d5-912e-5733ab7559f0\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SPRAS\",\"label\":\"SPRAS\",\"newName\":\"SPRAS\",\"indexOrder\":1,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"46b6094b-9cbb-4c75-ab23-89c1239318a4\"},\"71b0ad15-d56a-43e7-90eb-dc0a2a06ab1a\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"TXT20\",\"label\":\"TXT20\",\"newName\":\"TXT20\",\"indexOrder\":2,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"a0586582-800f-40f9-b904-0c9b9540d0a6\"},\"9906b63c-5c64-47a8-9309-f48c9baba069\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"TXT50\",\"label\":\"TXT50\",\"newName\":\"TXT50\",\"indexOrder\":3,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"721b4e0a-cea6-45d1-9721-653153e6e509\"},\"39f3db64-1d8b-459a-9bd6-d95f5af5932b\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.EntitySymbol\",\"name\":\"Entity Symbol 1\",\"x\":-163,\"y\":-20,\"width\":160,\"displayName\":\"Entity Symbol 1\",\"object\":\"436bdd68-e58d-4c20-a2c9-585bead7bf89\"},\"e10af33a-018f-4990-bdc1-df016c4645e7\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SAKNR\",\"label\":\"SAKNR\",\"newName\":\"SAKNR\",\"indexOrder\":0,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"46b6094b-9cbb-4c75-ab23-89c1239318a4\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SPRAS\",\"label\":\"SPRAS\",\"newName\":\"SPRAS\",\"indexOrder\":1,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"a0586582-800f-40f9-b904-0c9b9540d0a6\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"TXT20\",\"label\":\"TXT20\",\"newName\":\"TXT20\",\"indexOrder\":2,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"721b4e0a-cea6-45d1-9721-653153e6e509\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"TXT50\",\"label\":\"TXT50\",\"newName\":\"TXT50\",\"indexOrder\":3,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"c483e7af-b1ec-4f8a-80fb-e381d9f49876\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"-3,0 47,0\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"39f3db64-1d8b-459a-9bd6-d95f5af5932b\",\"targetSymbol\":\"3fdafa78-b17c-4572-bbbf-278f16925cac\"}}}"
+    }
+  }
+}
