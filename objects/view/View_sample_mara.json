@@ -1,0 +1,134 @@
+{
+  "definitions": {
+    "View_sample_mara": {
+      "kind": "entity",
+      "elements": {
+        "MATNR": {
+          "@EndUserText.label": "Material Number",
+          "type": "cds.String",
+          "length": 100,
+          "key": true,
+          "notNull": true
+        },
+        "MTART": {
+          "@EndUserText.label": "Material Type",
+          "type": "cds.String",
+          "length": 50
+        },
+        "MATKL": {
+          "@EndUserText.label": "Material Group",
+          "type": "cds.String",
+          "length": 50
+        },
+        "MEINS": {
+          "@EndUserText.label": "Base Unit",
+          "type": "cds.String",
+          "length": 50
+        },
+        "new_column": {
+          "@EndUserText.label": "new_column",
+          "type": "cds.Integer"
+        }
+      },
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "MARA"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "MATNR"
+              ]
+            },
+            {
+              "ref": [
+                "MTART"
+              ]
+            },
+            {
+              "ref": [
+                "MATKL"
+              ]
+            },
+            {
+              "ref": [
+                "MEINS"
+              ]
+            },
+            {
+              "val": 1,
+              "as": "new_column"
+            }
+          ]
+        }
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "@EndUserText.label": "View_sample_mara",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@DataWarehouse.consumption.external": false,
+      "@DataWarehouse.sqlEditor.query": "select \"MATNR\",\"MTART\",\"MATKL\",\"MEINS\" \n, 1 as new_column \nfrom \"MARA\"",
+      "_meta": {
+        "dependencies": {
+          "folderAssignment": null
+        }
+      }
+    },
+    "MARA": {
+      "kind": "entity",
+      "@EndUserText.label": "MARA",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "MATNR": {
+          "@EndUserText.label": "Material Number",
+          "type": "cds.String",
+          "length": 100,
+          "key": true,
+          "notNull": true
+        },
+        "MTART": {
+          "@EndUserText.label": "Material Type",
+          "type": "cds.String",
+          "length": 50
+        },
+        "MATKL": {
+          "@EndUserText.label": "Material Group",
+          "type": "cds.String",
+          "length": 50
+        },
+        "MEINS": {
+          "@EndUserText.label": "Base Unit",
+          "type": "cds.String",
+          "length": 50
+        }
+      },
+      "_meta": {
+        "dependencies": {
+          "folderAssignment": null
+        }
+      }
+    }
+  },
+  "version": {
+    "csn": "1.0"
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.19.2"
+  },
+  "$version": "1.0"
+}
