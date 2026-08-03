@@ -1,0 +1,183 @@
+{
+  "definitions": {
+    "VBAP_LOCAL_TABLE": {
+      "kind": "entity",
+      "@EndUserText.label": "Sales Document Item Data",
+      "@ObjectModel.modelingPattern": {
+        "#": "DIMENSION"
+      },
+      "@ObjectModel.representativeKey": "VBELN",
+      "@DataWarehouse.externalObject": true,
+      "elements": {
+        "VBELN": {
+          "@EndUserText.label": "SD Document",
+          "type": "cds.String",
+          "length": 10,
+          "key": true
+        },
+        "VOLEH": {
+          "@EndUserText.label": "Volume Unit",
+          "type": "cds.String",
+          "length": 3
+        },
+        "VOLUM": {
+          "@EndUserText.label": "Volume",
+          "type": "cds.Decimal",
+          "precision": 17,
+          "scale": 3
+        },
+        "VDATU": {
+          "@EndUserText.label": "Requested Delivery Date",
+          "type": "cds.Date"
+        },
+        "MEINS": {
+          "@EndUserText.label": "Base Unit of Measure",
+          "type": "cds.String",
+          "length": 3
+        },
+        "KZWI1": {
+          "@EndUserText.label": "Subtotal 1",
+          "type": "cds.Decimal",
+          "precision": 23,
+          "scale": 2
+        },
+        "KZWI3": {
+          "@EndUserText.label": "Subtotal 3",
+          "type": "cds.Decimal",
+          "precision": 23,
+          "scale": 2
+        },
+        "KZWI2": {
+          "@EndUserText.label": "Subtotal 2",
+          "type": "cds.Decimal",
+          "precision": 23,
+          "scale": 2
+        },
+        "KPEIN": {
+          "@EndUserText.label": "Condition Pricing Unit",
+          "type": "cds.Decimal",
+          "precision": 17,
+          "scale": 0
+        },
+        "MWSBP": {
+          "@EndUserText.label": "Tax Amount",
+          "type": "cds.Decimal",
+          "precision": 23,
+          "scale": 2
+        },
+        "KMEIN": {
+          "@EndUserText.label": "Condition Unit",
+          "type": "cds.String",
+          "length": 3
+        },
+        "MATWA": {
+          "@EndUserText.label": "Material Entered",
+          "type": "cds.String",
+          "length": 40
+        },
+        "PKUNRG": {
+          "@EndUserText.label": "Payer",
+          "type": "cds.String",
+          "length": 10
+        },
+        "PSTYV": {
+          "@EndUserText.label": "Item Category",
+          "type": "cds.String",
+          "length": 4
+        },
+        "WAERK": {
+          "@EndUserText.label": "Document Currency",
+          "type": "cds.String",
+          "length": 5
+        },
+        "PKUNWE": {
+          "@EndUserText.label": "Ship-to Party",
+          "type": "cds.String",
+          "length": 10
+        },
+        "BUKRS": {
+          "@EndUserText.label": "Company Code",
+          "type": "cds.String",
+          "length": 4
+        },
+        "MATKL": {
+          "@EndUserText.label": "Material Group",
+          "type": "cds.String",
+          "length": 9
+        },
+        "NETPR": {
+          "@EndUserText.label": "Net Price",
+          "type": "cds.Decimal",
+          "precision": 23,
+          "scale": 2
+        },
+        "HWAER": {
+          "@EndUserText.label": "Local Currency",
+          "type": "cds.String",
+          "length": 5
+        },
+        "NTGEW": {
+          "@EndUserText.label": "Net Weight",
+          "type": "cds.Decimal",
+          "precision": 17,
+          "scale": 3
+        },
+        "GEWEI": {
+          "@EndUserText.label": "Weight Unit",
+          "type": "cds.String",
+          "length": 3
+        },
+        "UVFAK": {
+          "@EndUserText.label": "Delivery Item Factor",
+          "type": "cds.String",
+          "length": 1
+        },
+        "UVVLK": {
+          "@EndUserText.label": "Delivery Item Category",
+          "type": "cds.String",
+          "length": 1
+        },
+        "MATNR": {
+          "@EndUserText.label": "Material Number",
+          "type": "cds.String",
+          "length": 40
+        },
+        "STWAE": {
+          "@EndUserText.label": "Statistics Currency",
+          "type": "cds.String",
+          "length": 5
+        },
+        "ERZET": {
+          "@EndUserText.label": "Entry Time",
+          "type": "cds.Time"
+        },
+        "ERDAT": {
+          "@EndUserText.label": "Created On",
+          "type": "cds.Date"
+        },
+        "LSMENG": {
+          "@EndUserText.label": "Required Delivery Quantity",
+          "type": "cds.Decimal",
+          "precision": 17,
+          "scale": 3
+        },
+        "WERKS": {
+          "@EndUserText.label": "Plant",
+          "type": "cds.String",
+          "length": 4
+        },
+        "NETWR": {
+          "@EndUserText.label": "Net Value",
+          "type": "cds.Decimal",
+          "precision": 23,
+          "scale": 2
+        },
+        "PERIV": {
+          "@EndUserText.label": "Fiscal Year Variant",
+          "type": "cds.String",
+          "length": 2
+        }
+      }
+    }
+  }
+}
