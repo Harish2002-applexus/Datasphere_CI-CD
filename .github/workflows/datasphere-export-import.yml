@@ -44,15 +44,15 @@ jobs:
       - name: Log in to Datasphere (client_credentials, headless)
         env:
           DSP_HOST: ${{ vars.DSP_HOST }}
-          DSP_CLIENT_ID: ${{ secrets.DSP_CLIENT_ID }}
-          DSP_CLIENT_SECRET: ${{ secrets.DSP_CLIENT_SECRET }}
+          DSP_GIT_INTEGRATE_CLIENT_ID: ${{ secrets.DSP_CLIENT_ID }}
+          DSP_GIT_INTEGRATE_CLIENT_SECRET: ${{ secrets.DSP_CLIENT_SECRET }}
           DSP_AUTH_URL: ${{ secrets.DSP_AUTH_URL }}
           DSP_TOKEN_URL: ${{ secrets.DSP_TOKEN_URL }}
         run: |
           datasphere login \
             --host "$DSP_HOST" \
-            --client-id "$DSP_CLIENT_ID" \
-            --client-secret "$DSP_CLIENT_SECRET" \
+            --client-id "$DSP_GIT_INTEGRATE_CLIENT_ID" \
+            --client-secret "$DSP_GIT_INTEGRATE_CLIENT_SECRET" \
             --authorization-url "$DSP_AUTH_URL" \
             --token-url "$DSP_TOKEN_URL" \
             --authorization-flow client_credentials
