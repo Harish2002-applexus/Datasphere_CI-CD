@@ -1,0 +1,50 @@
+{
+  "definitions": {
+    "SALARY": {
+      "kind": "entity",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_2a1f02d8-e0b1-4c3a-9b50-1da17ea5d629_view",
+      "@EndUserText.label": "SALARY",
+      "elements": {
+        "ID": {
+          "type": "cds.Integer64",
+          "@EndUserText.label": "ID"
+        },
+        "NAME": {
+          "type": "cds.String",
+          "length": 5000,
+          "@EndUserText.label": "NAME"
+        },
+        "GENDER": {
+          "type": "cds.String",
+          "length": 5000,
+          "@EndUserText.label": "GENDER"
+        },
+        "CITY": {
+          "type": "cds.String",
+          "length": 5000,
+          "@EndUserText.label": "CITY"
+        },
+        "SALARY": {
+          "type": "cds.Decimal",
+          "precision": 38,
+          "scale": 19,
+          "@EndUserText.label": "SALARY"
+        },
+        "CREDIT_CARD": {
+          "type": "cds.String",
+          "length": 5000,
+          "@EndUserText.label": "CREDIT_CARD"
+        }
+      }
+    }
+  }
+}
