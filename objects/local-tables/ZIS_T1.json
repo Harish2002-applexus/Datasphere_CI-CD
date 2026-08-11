@@ -1,0 +1,105 @@
+{
+  "definitions": {
+    "ZIS_T1": {
+      "kind": "entity",
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "BIC_ZIOC_T1": {
+          "@EndUserText.label": "TYPE",
+          "type": "cds.String",
+          "length": 3
+        },
+        "DATE0": {
+          "@EndUserText.label": "Date",
+          "type": "cds.Date"
+        },
+        "BIC_ZIOC_T10": {
+          "@EndUserText.label": "CITY Text",
+          "type": "cds.String",
+          "length": 100
+        },
+        "BIC_ZIOC_T11": {
+          "@EndUserText.label": "PIN",
+          "type": "cds.String",
+          "length": 5
+        },
+        "BIC_ZIOC_T12": {
+          "@EndUserText.label": "Month",
+          "type": "cds.String",
+          "length": 2
+        },
+        "BIC_ZIOC_T13": {
+          "@EndUserText.label": "Year",
+          "type": "cds.String",
+          "length": 4
+        },
+        "BIC_ZIOC_T2": {
+          "@EndUserText.label": "TYPE Text",
+          "type": "cds.String",
+          "length": 40
+        },
+        "BIC_ZIOC_T3": {
+          "@EndUserText.label": "LINES",
+          "type": "cds.String",
+          "length": 4
+        },
+        "BIC_ZIOC_T4": {
+          "@EndUserText.label": "LINES Text",
+          "type": "cds.String",
+          "length": 100
+        },
+        "BIC_ZIOC_T5": {
+          "@EndUserText.label": "CATEGORY",
+          "type": "cds.String",
+          "length": 5
+        },
+        "BIC_ZIOC_T6": {
+          "@EndUserText.label": "CATEGORY Text",
+          "type": "cds.String",
+          "length": 100
+        },
+        "BIC_ZIOC_T7": {
+          "@EndUserText.label": "STATE",
+          "type": "cds.String",
+          "length": 2
+        },
+        "BIC_ZIOC_T8": {
+          "@EndUserText.label": "STATE Text",
+          "type": "cds.String",
+          "length": 40
+        },
+        "BIC_MARGIN": {
+          "@EndUserText.label": "BIC_MARGIN",
+          "type": "cds.Integer64"
+        },
+        "BIC_ZIOC_T9": {
+          "@EndUserText.label": "CITY",
+          "type": "cds.String",
+          "length": 40
+        },
+        "BIC_ZIOKF_T1": {
+          "@EndUserText.label": "Sales Revenue",
+          "type": "cds.DecimalFloat"
+        },
+        "CURRENCY": {
+          "@EndUserText.label": "CURRENCY",
+          "type": "cds.String",
+          "length": 5
+        },
+        "RECORDMODE": {
+          "@EndUserText.label": "BW Delta Process: Update Mode",
+          "type": "cds.String",
+          "length": 1
+        }
+      },
+      "@EndUserText.label": "Zis_t1",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      }
+    }
+  }
+}
