@@ -41,7 +41,7 @@ jobs:
       - name: Install Datasphere CLI
         run: npm install -g @sap/datasphere-cli
 
-      - - name: Log in to Datasphere (client_credentials, headless)
+      - name: Log in to Datasphere (client_credentials, headless)
         env:
           DSP_HOST: ${{ vars.DSP_HOST }}
           DSP_CLIENT_ID: ${{ secrets.DSP_GIT_INTEGRATE_CLIENT_ID }}
