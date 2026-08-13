@@ -21,7 +21,7 @@
         "NAME": {
           "type": "cds.String",
           "length": 5000,
-          "@EndUserText.label": "NAME"
+          "@EndUserText.label": "EMPLOYEE_NAME"
         },
         "GENDER": {
           "type": "cds.String",
