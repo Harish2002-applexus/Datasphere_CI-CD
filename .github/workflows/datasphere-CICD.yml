@@ -86,10 +86,33 @@ jobs:
           DSP_AUTH_URL: ${{ secrets.DSP_AUTH_URL }}
           DSP_TOKEN_URL: ${{ secrets.DSP_TOKEN_URL }}
         run: |
+          set +e
           datasphere login --host "$DSP_HOST" \
             --client-id "$DSP_CLIENT_ID" --client-secret "$DSP_CLIENT_SECRET" \
             --authorization-url "$DSP_AUTH_URL" --token-url "$DSP_TOKEN_URL" \
             --authorization-flow client_credentials
+          LOGIN_EXIT=$?
+          set -e
+          if [ $LOGIN_EXIT -ne 0 ]; then
+            echo "::error::datasphere login exited $LOGIN_EXIT - check DSP_HOST, DSP_AUTH_URL, DSP_TOKEN_URL, and that the OAuth client uses the client_credentials flow."
+            exit 1
+          fi
+          echo "Login succeeded."
+
+      - name: List objects of this type in the space (pre-flight check)
+        run: |
+          echo "Objects of type '$TYPE' visible in space '$SPACE':"
+          set +e
+          datasphere objects "$TYPE" list --host "$DSP_HOST" --space "$SPACE" > /tmp/list.json 2> /tmp/list_err.log
+          LIST_EXIT=$?
+          set -e
+          if [ $LIST_EXIT -ne 0 ]; then
+            echo "::error::Could not list $TYPE objects in space '$SPACE'. This usually means the space ID is wrong or the technical user lacks access to it. stderr:"
+            cat /tmp/list_err.log
+            exit 1
+          fi
+          cat /tmp/list.json
+          echo "--- If your target name isn't spelled exactly the same (case-sensitive) above, that's the cause of the next step failing. ---"
 
       - name: Export each requested object
         run: |
@@ -99,6 +122,10 @@ jobs:
             NAME=$(echo "$RAW" | xargs)
             [ -z "$NAME" ] && continue
             FILE="objects/$TYPE/$NAME.json"
+
+            if ! grep -qi "\"$NAME\"" /tmp/list.json; then
+              echo "::warning::'$NAME' was not found (case-insensitive match) in the object list printed above. Proceeding anyway in case the list output format differs, but this will likely fail."
+            fi
 
             set +e
             datasphere objects "$TYPE" read --host "$DSP_HOST" --space "$SPACE" \
