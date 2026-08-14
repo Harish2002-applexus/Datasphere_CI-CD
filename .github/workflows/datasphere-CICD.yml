@@ -334,7 +334,7 @@ jobs:
         run: |
           FAILED=0
           echo "## QA test results" >> "$GITHUB_STEP_SUMMARY"
-          echo "$MATRIX" | jq -c '.include[]' | while read -r ITEM; do
+          while read -r ITEM; do
             TYPE=$(echo "$ITEM" | jq -r .object_type)
             NAME=$(echo "$ITEM" | jq -r .technical_name)
             if datasphere objects "$TYPE" read --host "$DSP_HOST" --space "$SPACE" \
@@ -346,7 +346,7 @@ jobs:
               echo "::error::$TYPE/$NAME is not readable in QA."
               FAILED=1
             fi
-          done
+          done < <(echo "$MATRIX" | jq -c '.include[]')
           exit $FAILED
 
   plan_prod:
