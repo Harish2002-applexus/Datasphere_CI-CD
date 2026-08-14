@@ -1,0 +1,577 @@
+{
+  "definitions": {
+    "ZA11_HDR0_V3": {
+      "kind": "entity",
+      "@EndUserText.label": "ZA11_HDR0_V3 - Sales Order Header Raw",
+      "@ObjectModel.modelingPattern": {
+        "#": "ANALYTICAL_FACT"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "@DataWarehouse.consumption.external": true,
+      "elements": {
+        "ROCANCEL": {
+          "type": "cds.String",
+          "length": 1,
+          "@EndUserText.label": "ROCANCEL"
+        },
+        "VBELN": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "VBELN"
+        },
+        "BUCHK": {
+          "type": "cds.String",
+          "length": 2,
+          "@EndUserText.label": "BUCHK"
+        },
+        "AUART": {
+          "type": "cds.String",
+          "length": 4,
+          "@EndUserText.label": "AUART"
+        },
+        "AUGRU": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "AUGRU"
+        },
+        "BUKRS": {
+          "type": "cds.String",
+          "length": 4,
+          "@EndUserText.label": "BUKRS"
+        },
+        "ERDAT": {
+          "type": "cds.Date",
+          "@EndUserText.label": "ERDAT"
+        },
+        "FAKSK": {
+          "type": "cds.String",
+          "length": 2,
+          "@EndUserText.label": "FAKSK"
+        },
+        "HWAER": {
+          "type": "cds.String",
+          "length": 5,
+          "@EndUserText.label": "HWAER"
+        },
+        "KUNNR": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "KUNNR"
+        },
+        "KURST": {
+          "type": "cds.String",
+          "length": 4,
+          "@EndUserText.label": "KURST"
+        },
+        "KVGR1": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "KVGR1"
+        },
+        "KVGR2": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "KVGR2"
+        },
+        "KVGR3": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "KVGR3"
+        },
+        "KVGR4": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "KVGR4"
+        },
+        "KVGR5": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "KVGR5"
+        },
+        "LIFSK": {
+          "type": "cds.String",
+          "length": 2,
+          "@EndUserText.label": "LIFSK"
+        },
+        "PVRTNR": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "PVRTNR"
+        },
+        "STWAE": {
+          "type": "cds.String",
+          "length": 5,
+          "@EndUserText.label": "STWAE"
+        },
+        "VBTYP": {
+          "type": "cds.String",
+          "length": 1,
+          "@EndUserText.label": "VBTYP"
+        },
+        "VDATU": {
+          "type": "cds.Date",
+          "@EndUserText.label": "VDATU"
+        },
+        "VKBUR": {
+          "type": "cds.String",
+          "length": 4,
+          "@EndUserText.label": "VKBUR"
+        },
+        "VKGRP": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "VKGRP"
+        },
+        "VKORG": {
+          "type": "cds.String",
+          "length": 4,
+          "@EndUserText.label": "VKORG"
+        },
+        "VTWEG": {
+          "type": "cds.String",
+          "length": 2,
+          "@EndUserText.label": "VTWEG"
+        },
+        "WAERK": {
+          "type": "cds.String",
+          "length": 5,
+          "@EndUserText.label": "WAERK"
+        },
+        "AEDAT": {
+          "type": "cds.Date",
+          "@EndUserText.label": "AEDAT"
+        },
+        "AUDAT": {
+          "type": "cds.Date",
+          "@EndUserText.label": "AUDAT"
+        },
+        "AUFNR": {
+          "type": "cds.String",
+          "length": 12,
+          "@EndUserText.label": "AUFNR"
+        },
+        "AUTLF": {
+          "type": "cds.String",
+          "length": 1,
+          "@EndUserText.label": "AUTLF"
+        },
+        "BSARK": {
+          "type": "cds.String",
+          "length": 4,
+          "@EndUserText.label": "BSARK"
+        },
+        "CMWAE": {
+          "type": "cds.String",
+          "length": 5,
+          "@EndUserText.label": "CMWAE"
+        },
+        "ERNAM": {
+          "type": "cds.String",
+          "length": 12,
+          "@EndUserText.label": "ERNAM"
+        },
+        "ERZET": {
+          "type": "cds.Time",
+          "@EndUserText.label": "ERZET"
+        },
+        "KOKRS": {
+          "type": "cds.String",
+          "length": 4,
+          "@EndUserText.label": "KOKRS"
+        },
+        "KOSTL": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "KOSTL"
+        },
+        "KTEXT": {
+          "type": "cds.String",
+          "length": 40,
+          "@EndUserText.label": "KTEXT"
+        },
+        "LAND1": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "LAND1"
+        },
+        "LAST_CHANGED_BY_USER": {
+          "type": "cds.String",
+          "length": 12,
+          "@EndUserText.label": "LAST_CHANGED_BY_USER"
+        },
+        "MANDT": {
+          "type": "cds.String",
+          "length": 3,
+          "@EndUserText.label": "MANDT"
+        },
+        "NETWR": {
+          "type": "cds.Decimal",
+          "precision": 23,
+          "scale": 2,
+          "@EndUserText.label": "NETWR"
+        },
+        "OBJNR": {
+          "type": "cds.String",
+          "length": 22,
+          "@EndUserText.label": "OBJNR"
+        },
+        "PKUNRE": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "PKUNRE"
+        },
+        "PKUNRG": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "PKUNRG"
+        },
+        "PKUNWE": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "PKUNWE"
+        },
+        "SPART": {
+          "type": "cds.String",
+          "length": 2,
+          "@EndUserText.label": "SPART"
+        },
+        "UPD_TMSTMP": {
+          "type": "cds.String",
+          "length": 20,
+          "@EndUserText.label": "UPD_TMSTMP"
+        },
+        "VSBED": {
+          "type": "cds.String",
+          "length": 2,
+          "@EndUserText.label": "VSBED"
+        },
+        "VSNMR_V": {
+          "type": "cds.String",
+          "length": 10,
+          "@EndUserText.label": "VSNMR_V"
+        },
+        "SPARA": {
+          "type": "cds.String",
+          "length": 20,
+          "@EndUserText.label": "SPARA"
+        },
+        "ANZAU": {
+          "type": "cds.String",
+          "length": 20,
+          "@EndUserText.label": "ANZAU"
+        },
+        "PERIV": {
+          "type": "cds.String",
+          "length": 2,
+          "@EndUserText.label": "PERIV"
+        },
+        "ZZSALES_PERSON": {
+          "type": "cds.String",
+          "length": 20,
+          "@EndUserText.label": "ZZSALES_PERSON"
+        },
+        "ODQ_CHANGEMODE": {
+          "type": "cds.String",
+          "length": 1,
+          "@EndUserText.label": "ODQ_CHANGEMODE"
+        },
+        "ODQ_ENTITYCNTR": {
+          "type": "cds.String",
+          "length": 20,
+          "@EndUserText.label": "ODQ_ENTITYCNTR"
+        }
+      },
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "2LIS_11_VAHDR"
+            ]
+          },
+          "columns": [
+            {
+              "ref": [
+                "ROCANCEL"
+              ]
+            },
+            {
+              "ref": [
+                "VBELN"
+              ]
+            },
+            {
+              "ref": [
+                "BUCHK"
+              ]
+            },
+            {
+              "ref": [
+                "AUART"
+              ]
+            },
+            {
+              "ref": [
+                "AUGRU"
+              ]
+            },
+            {
+              "ref": [
+                "BUKRS"
+              ]
+            },
+            {
+              "ref": [
+                "ERDAT"
+              ]
+            },
+            {
+              "ref": [
+                "FAKSK"
+              ]
+            },
+            {
+              "ref": [
+                "HWAER"
+              ]
+            },
+            {
+              "ref": [
+                "KUNNR"
+              ]
+            },
+            {
+              "ref": [
+                "KURST"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR1"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR2"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR3"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR4"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR5"
+              ]
+            },
+            {
+              "ref": [
+                "LIFSK"
+              ]
+            },
+            {
+              "ref": [
+                "PVRTNR"
+              ]
+            },
+            {
+              "ref": [
+                "STWAE"
+              ]
+            },
+            {
+              "ref": [
+                "VBTYP"
+              ]
+            },
+            {
+              "ref": [
+                "VDATU"
+              ]
+            },
+            {
+              "ref": [
+                "VKBUR"
+              ]
+            },
+            {
+              "ref": [
+                "VKGRP"
+              ]
+            },
+            {
+              "ref": [
+                "VKORG"
+              ]
+            },
+            {
+              "ref": [
+                "VTWEG"
+              ]
+            },
+            {
+              "ref": [
+                "WAERK"
+              ]
+            },
+            {
+              "ref": [
+                "AEDAT"
+              ]
+            },
+            {
+              "ref": [
+                "AUDAT"
+              ]
+            },
+            {
+              "ref": [
+                "AUFNR"
+              ]
+            },
+            {
+              "ref": [
+                "AUTLF"
+              ]
+            },
+            {
+              "ref": [
+                "BSARK"
+              ]
+            },
+            {
+              "ref": [
+                "CMWAE"
+              ]
+            },
+            {
+              "ref": [
+                "ERNAM"
+              ]
+            },
+            {
+              "ref": [
+                "ERZET"
+              ]
+            },
+            {
+              "ref": [
+                "KOKRS"
+              ]
+            },
+            {
+              "ref": [
+                "KOSTL"
+              ]
+            },
+            {
+              "ref": [
+                "KTEXT"
+              ]
+            },
+            {
+              "ref": [
+                "LAND1"
+              ]
+            },
+            {
+              "ref": [
+                "LAST_CHANGED_BY_USER"
+              ]
+            },
+            {
+              "ref": [
+                "MANDT"
+              ]
+            },
+            {
+              "ref": [
+                "NETWR"
+              ]
+            },
+            {
+              "ref": [
+                "OBJNR"
+              ]
+            },
+            {
+              "ref": [
+                "PKUNRE"
+              ]
+            },
+            {
+              "ref": [
+                "PKUNRG"
+              ]
+            },
+            {
+              "ref": [
+                "PKUNWE"
+              ]
+            },
+            {
+              "ref": [
+                "SPART"
+              ]
+            },
+            {
+              "ref": [
+                "UPD_TMSTMP"
+              ]
+            },
+            {
+              "ref": [
+                "VSBED"
+              ]
+            },
+            {
+              "ref": [
+                "VSNMR_V"
+              ]
+            },
+            {
+              "ref": [
+                "SPARA"
+              ]
+            },
+            {
+              "ref": [
+                "ANZAU"
+              ]
+            },
+            {
+              "ref": [
+                "PERIV"
+              ]
+            },
+            {
+              "ref": [
+                "ZZSALES_PERSON"
+              ]
+            },
+            {
+              "ref": [
+                "ODQ_CHANGEMODE"
+              ]
+            },
+            {
+              "ref": [
+                "ODQ_ENTITYCNTR"
+              ]
+            }
+          ]
+        }
+      },
+      "@DataWarehouse.sqlEditor.query": "-- MERGE load: key fields are none defined\nSELECT\n  ROCANCEL,\n  VBELN,\n  BUCHK,\n  AUART,\n  AUGRU,\n  BUKRS,\n  ERDAT,\n  FAKSK,\n  HWAER,\n  KUNNR,\n  KURST,\n  KVGR1,\n  KVGR2,\n  KVGR3,\n  KVGR4,\n  KVGR5,\n  LIFSK,\n  PVRTNR,\n  STWAE,\n  VBTYP,\n  VDATU,\n  VKBUR,\n  VKGRP,\n  VKORG,\n  VTWEG,\n  WAERK,\n  AEDAT,\n  AUDAT,\n  AUFNR,\n  AUTLF,\n  BSARK,\n  CMWAE,\n  ERNAM,\n  ERZET,\n  KOKRS,\n  KOSTL,\n  KTEXT,\n  LAND1,\n  LAST_CHANGED_BY_USER,\n  MANDT,\n  NETWR,\n  OBJNR,\n  PKUNRE,\n  PKUNRG,\n  PKUNWE,\n  SPART,\n  UPD_TMSTMP,\n  VSBED,\n  VSNMR_V,\n  SPARA,\n  ANZAU,\n  PERIV,\n  ZZSALES_PERSON,\n  ODQ_CHANGEMODE,\n  ODQ_ENTITYCNTR\nFROM \"2LIS_11_VAHDR\""
+    }
+  }
+}
