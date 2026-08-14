@@ -481,13 +481,25 @@ jobs:
       - name: Deploy to PROD
         run: |
           FILE="objects/$TYPE/$NAME.json"
+          set +e
           if [ "${{ steps.snap.outputs.existed }}" = "true" ]; then
             datasphere objects "$TYPE" update --host "$DSP_HOST" --space "$SPACE" \
-              --technical-name "$NAME" --file-path "$FILE"
+              --technical-name "$NAME" --file-path "$FILE" > /tmp/cli_out.log 2> /tmp/cli_err.log
           else
             datasphere objects "$TYPE" create --host "$DSP_HOST" --space "$SPACE" \
-              --technical-name "$NAME" --file-path "$FILE"
+              --technical-name "$NAME" --file-path "$FILE" > /tmp/cli_out.log 2> /tmp/cli_err.log
           fi
+          CLI_EXIT=$?
+          set -e
+          if [ $CLI_EXIT -ne 0 ]; then
+            echo "::error::CLI exited $CLI_EXIT deploying $TYPE/$NAME to PROD ($SPACE)."
+            echo "--- stdout ---"
+            cat /tmp/cli_out.log
+            echo "--- stderr ---"
+            cat /tmp/cli_err.log
+            exit 1
+          fi
+          cat /tmp/cli_out.log
 
       - name: Verify in PROD
         run: |
