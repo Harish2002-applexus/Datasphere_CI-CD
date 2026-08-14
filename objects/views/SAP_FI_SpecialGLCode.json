@@ -1,0 +1,172 @@
+{
+  "definitions": {
+    "SAP_FI_SpecialGLCode": {
+      "@DataWarehouse.compoundKeySequence": [
+        {
+          "=": "FinancialAccountType"
+        },
+        {
+          "=": "Language"
+        },
+        {
+          "=": "SpecialGLCode"
+        }
+      ],
+      "@DataWarehouse.consumption.external": false,
+      "@DataWarehouse.querybuilder.model": "{\"contents\":{\"c9b129a4-c212-461b-9f18-2084f3e45934\":{\"classDefinition\":\"sap.cdw.querybuilder.Model\",\"name\":\"SAP_FI_SpecialGLCode\",\"label\":\"Special General Ledger Code\",\"modificationDate\":1679482341902,\"deploymentDate\":0,\"#objectStatus\":\"0\",\"output\":\"3c9e6dc0-0412-4116-8ff9-a380f0bb217c\",\"nodes\":{\"3c9e6dc0-0412-4116-8ff9-a380f0bb217c\":{\"name\":\"SAP_FI_SpecialGLCodeText\"},\"d2a29a37-cf92-4b18-837c-968dc040eab2\":{\"name\":\"SAP_FI_IL_T_SpecialGLCode\"}},\"types\":{\"fee59dfa-a0fc-4fc4-a5de-2aba8904fce6\":{\"name\":\"abap.lang\"}},\"diagrams\":{\"40a95f6a-6a30-430c-91e8-cadd7b321793\":{}}},\"3c9e6dc0-0412-4116-8ff9-a380f0bb217c\":{\"classDefinition\":\"sap.cdw.querybuilder.Output\",\"name\":\"SAP_FI_SpecialGLCodeText\",\"type\":\"graphicView\",\"isPinToMemoryEnabled\":false,\"dataCategory\":\"TEXT\",\"isAllowConsumption\":false,\"modificationDate\":1679482341902,\"deploymentDate\":0,\"#objectStatus\":\"0\",\"elements\":{\"6e939abe-a556-424d-a4a2-a3f49eafab2c\":{\"name\":\"FinancialAccountType\"},\"ec9b3d94-2272-431c-80fc-c74af049e62e\":{\"name\":\"SpecialGLCode\"},\"fe8cf9e1-9ed1-4207-8477-0265adf27c99\":{\"name\":\"Language\"},\"f6e8846c-435e-4b38-8402-1b9617f62e14\":{\"name\":\"SpecialGLCodeName\"},\"75709191-8a4c-45ab-b0a2-b8cd2738b90f\":{\"name\":\"SpecialGLCodeLongName\"}},\"representativeKey\":\"ec9b3d94-2272-431c-80fc-c74af049e62e\",\"compoundKeySequence\":{\"6e939abe-a556-424d-a4a2-a3f49eafab2c\":{\"name\":\"FinancialAccountType\"},\"fe8cf9e1-9ed1-4207-8477-0265adf27c99\":{\"name\":\"Language\"}}},\"d2a29a37-cf92-4b18-837c-968dc040eab2\":{\"classDefinition\":\"sap.cdw.querybuilder.Entity\",\"name\":\"SAP_FI_IL_T_SpecialGLCode\",\"label\":\"Special General Ledger Code - Text (IL)\",\"type\":3,\"isPinToMemoryEnabled\":false,\"dataCategory\":\"TEXT\",\"isAllowConsumption\":false,\"isHiddenInUi\":false,\"modificationDate\":1679482297283,\"deploymentDate\":1679482311450,\"#objectStatus\":\"1\",\"elements\":{\"681f8877-6182-464d-ae21-014b70bb7108\":{\"name\":\"FinancialAccountType\"},\"4a22c4e2-e10e-411e-aa8f-f5dc59e4f0b8\":{\"name\":\"SpecialGLCode\"},\"2cc1ee8e-1dcd-41ff-9e7a-ab8724317b9d\":{\"name\":\"Language\"},\"71b3368d-31ff-4631-9848-ac95af19a8b9\":{\"name\":\"SpecialGLCodeName\"},\"fc02ceb4-ec8c-460d-9d7f-b8cd6f61d437\":{\"name\":\"SpecialGLCodeLongName\"}},\"successorNode\":\"3c9e6dc0-0412-4116-8ff9-a380f0bb217c\"},\"fee59dfa-a0fc-4fc4-a5de-2aba8904fce6\":{\"classDefinition\":\"sap.cdw.commonmodel.SimpleType\",\"length\":1,\"precision\":0,\"scale\":0,\"name\":\"abap.lang\",\"label\":\"Language key\"},\"40a95f6a-6a30-430c-91e8-cadd7b321793\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.Diagram\",\"symbols\":{\"431cdb6f-d55c-4c89-aecf-1c21263416ce\":{},\"735317e8-5624-408d-a2b6-4640a142a8b8\":{\"name\":\"Entity Symbol 1\"},\"8fd153c8-4033-4ccc-a382-ff8ec1b98f3a\":{}}},\"6e939abe-a556-424d-a4a2-a3f49eafab2c\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"FinancialAccountType\",\"label\":\"Account Type\",\"newName\":\"FinancialAccountType\",\"indexOrder\":0,\"isKey\":true,\"length\":1,\"precision\":0,\"scale\":0,\"nativeDataType\":\"NVARCHAR\",\"isNotNull\":true,\"allowedExpressions\":[{\"#\":\"EQUAL\"},{\"#\":\"LIKE\"},{\"#\":\"BETWEEN\"}]},\"ec9b3d94-2272-431c-80fc-c74af049e62e\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SpecialGLCode\",\"label\":\"Special G/L Indicator\",\"newName\":\"SpecialGLCode\",\"indexOrder\":1,\"isKey\":true,\"length\":1,\"precision\":0,\"scale\":0,\"nativeDataType\":\"NVARCHAR\",\"isNotNull\":true,\"allowedExpressions\":[{\"#\":\"EQUAL\"},{\"#\":\"LIKE\"},{\"#\":\"BETWEEN\"}],\"labelElement\":\"f6e8846c-435e-4b38-8402-1b9617f62e14\"},\"fe8cf9e1-9ed1-4207-8477-0265adf27c99\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Language\",\"label\":\"Language Key\",\"newName\":\"Language\",\"indexOrder\":2,\"isKey\":true,\"length\":2,\"precision\":0,\"scale\":0,\"semanticType\":\"@Semantics.language\",\"nativeDataType\":\"NVARCHAR\",\"isNotNull\":true,\"allowedExpressions\":[{\"#\":\"EQUAL\"},{\"#\":\"LIKE\"},{\"#\":\"BETWEEN\"}]},\"f6e8846c-435e-4b38-8402-1b9617f62e14\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SpecialGLCodeName\",\"label\":\"Short Text for Special G/L Indicator\",\"newName\":\"SpecialGLCodeName\",\"indexOrder\":3,\"length\":7,\"precision\":0,\"scale\":0,\"semanticType\":\"@Semantics.text\",\"nativeDataType\":\"NVARCHAR\",\"allowedExpressions\":[{\"#\":\"EQUAL\"},{\"#\":\"LIKE\"},{\"#\":\"BETWEEN\"}]},\"75709191-8a4c-45ab-b0a2-b8cd2738b90f\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SpecialGLCodeLongName\",\"label\":\"Long Text for Special G/L Indicator\",\"newName\":\"SpecialGLCodeLongName\",\"indexOrder\":4,\"length\":30,\"precision\":0,\"scale\":0,\"semanticType\":\"@Semantics.text\",\"nativeDataType\":\"NVARCHAR\",\"allowedExpressions\":[{\"#\":\"EQUAL\"},{\"#\":\"LIKE\"},{\"#\":\"BETWEEN\"}]},\"681f8877-6182-464d-ae21-014b70bb7108\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"FinancialAccountType\",\"label\":\"Account Type\",\"newName\":\"FinancialAccountType\",\"indexOrder\":0,\"isKey\":true,\"length\":1,\"precision\":0,\"scale\":0,\"nativeDataType\":\"NVARCHAR\",\"isNotNull\":true,\"successorElement\":\"6e939abe-a556-424d-a4a2-a3f49eafab2c\"},\"4a22c4e2-e10e-411e-aa8f-f5dc59e4f0b8\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SpecialGLCode\",\"label\":\"Special G/L Indicator\",\"newName\":\"SpecialGLCode\",\"indexOrder\":1,\"isKey\":true,\"length\":1,\"precision\":0,\"scale\":0,\"nativeDataType\":\"NVARCHAR\",\"isNotNull\":true,\"successorElement\":\"ec9b3d94-2272-431c-80fc-c74af049e62e\",\"labelElement\":\"fc02ceb4-ec8c-460d-9d7f-b8cd6f61d437\"},\"2cc1ee8e-1dcd-41ff-9e7a-ab8724317b9d\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Language\",\"label\":\"Language Key\",\"newName\":\"Language\",\"indexOrder\":2,\"isKey\":true,\"length\":2,\"precision\":0,\"scale\":0,\"semanticType\":\"@Semantics.language\",\"nativeDataType\":\"NVARCHAR\",\"isNotNull\":true,\"successorElement\":\"fe8cf9e1-9ed1-4207-8477-0265adf27c99\"},\"71b3368d-31ff-4631-9848-ac95af19a8b9\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SpecialGLCodeName\",\"label\":\"Short Text for Special G/L Indicator\",\"newName\":\"SpecialGLCodeName\",\"indexOrder\":3,\"length\":7,\"precision\":0,\"scale\":0,\"semanticType\":\"@Semantics.text\",\"nativeDataType\":\"NVARCHAR\",\"successorElement\":\"f6e8846c-435e-4b38-8402-1b9617f62e14\"},\"fc02ceb4-ec8c-460d-9d7f-b8cd6f61d437\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SpecialGLCodeLongName\",\"label\":\"Long Text for Special G/L Indicator\",\"newName\":\"SpecialGLCodeLongName\",\"indexOrder\":4,\"length\":30,\"precision\":0,\"scale\":0,\"semanticType\":\"@Semantics.text\",\"nativeDataType\":\"NVARCHAR\",\"successorElement\":\"75709191-8a4c-45ab-b0a2-b8cd2738b90f\"},\"431cdb6f-d55c-4c89-aecf-1c21263416ce\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.OutputSymbol\",\"x\":47,\"y\":-20,\"width\":140,\"height\":40,\"object\":\"3c9e6dc0-0412-4116-8ff9-a380f0bb217c\"},\"735317e8-5624-408d-a2b6-4640a142a8b8\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.EntitySymbol\",\"name\":\"Entity Symbol 1\",\"x\":-163,\"y\":-20,\"width\":160,\"height\":40,\"displayName\":\"Entity Symbol 1\",\"object\":\"d2a29a37-cf92-4b18-837c-968dc040eab2\"},\"8fd153c8-4033-4ccc-a382-ff8ec1b98f3a\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"-3,0 47,0\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"735317e8-5624-408d-a2b6-4640a142a8b8\",\"targetSymbol\":\"431cdb6f-d55c-4c89-aecf-1c21263416ce\"}}}",
+      "@EndUserText.label": "Special General Ledger Code",
+      "@ObjectModel.modelingPattern": {
+        "#": "LANGUAGE_DEPENDENT_TEXT"
+      },
+      "@ObjectModel.representativeKey": {
+        "=": "SpecialGLCode"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "LANGUAGE_DEPENDENT_TEXT"
+        }
+      ],
+      "elements": {
+        "FinancialAccountType": {
+          "@DataWarehouse.capabilities.filter.allowedExpressions": [
+            {
+              "#": "EQUAL"
+            },
+            {
+              "#": "LIKE"
+            },
+            {
+              "#": "BETWEEN"
+            }
+          ],
+          "@DataWarehouse.native.dataType": "NVARCHAR",
+          "@EndUserText.label": "Account Type",
+          "key": true,
+          "length": 1,
+          "notNull": true,
+          "type": "cds.String"
+        },
+        "Language": {
+          "@DataWarehouse.capabilities.filter.allowedExpressions": [
+            {
+              "#": "EQUAL"
+            },
+            {
+              "#": "LIKE"
+            },
+            {
+              "#": "BETWEEN"
+            }
+          ],
+          "@DataWarehouse.native.dataType": "NVARCHAR",
+          "@EndUserText.label": "Language Key",
+          "@Semantics.language": true,
+          "key": true,
+          "length": 2,
+          "notNull": true,
+          "type": "cds.String"
+        },
+        "SpecialGLCode": {
+          "@DataWarehouse.capabilities.filter.allowedExpressions": [
+            {
+              "#": "EQUAL"
+            },
+            {
+              "#": "LIKE"
+            },
+            {
+              "#": "BETWEEN"
+            }
+          ],
+          "@DataWarehouse.native.dataType": "NVARCHAR",
+          "@EndUserText.label": "Special G/L Indicator",
+          "@ObjectModel.text.element": [
+            {
+              "=": "SpecialGLCodeName"
+            }
+          ],
+          "key": true,
+          "length": 1,
+          "notNull": true,
+          "type": "cds.String"
+        },
+        "SpecialGLCodeLongName": {
+          "@DataWarehouse.capabilities.filter.allowedExpressions": [
+            {
+              "#": "EQUAL"
+            },
+            {
+              "#": "LIKE"
+            },
+            {
+              "#": "BETWEEN"
+            }
+          ],
+          "@DataWarehouse.native.dataType": "NVARCHAR",
+          "@EndUserText.label": "Long Text for Special G/L Indicator",
+          "@Semantics.text": true,
+          "length": 30,
+          "type": "cds.String"
+        },
+        "SpecialGLCodeName": {
+          "@DataWarehouse.capabilities.filter.allowedExpressions": [
+            {
+              "#": "EQUAL"
+            },
+            {
+              "#": "LIKE"
+            },
+            {
+              "#": "BETWEEN"
+            }
+          ],
+          "@DataWarehouse.native.dataType": "NVARCHAR",
+          "@EndUserText.label": "Short Text for Special G/L Indicator",
+          "@Semantics.text": true,
+          "length": 7,
+          "type": "cds.String"
+        }
+      },
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "columns": [
+            {
+              "key": true,
+              "ref": [
+                "FinancialAccountType"
+              ]
+            },
+            {
+              "key": true,
+              "ref": [
+                "SpecialGLCode"
+              ]
+            },
+            {
+              "key": true,
+              "ref": [
+                "Language"
+              ]
+            },
+            {
+              "ref": [
+                "SpecialGLCodeName"
+              ]
+            },
+            {
+              "ref": [
+                "SpecialGLCodeLongName"
+              ]
+            }
+          ],
+          "from": {
+            "ref": [
+              "SAP_FI_IL_T_SpecialGLCode"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
