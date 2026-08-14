@@ -1,33 +1,36 @@
-name: Datasphere Export / Import
+name: Datasphere Export Only
 
-# Two manual jobs:
-#  - export: pulls objects from a Datasphere space and pushes them to this repo
-#  - import: pulls the latest files from this repo and deploys them into a target space
-#
-# Both use client_credentials OAuth (no browser/passcode) so they can run headless on GitHub's runners.
+# Exports a single object from a Datasphere space and commits/pushes it to this repo.
+# Space ID is the first input; object type is a dropdown covering all major Datasphere object types.
 
 on:
   workflow_dispatch:
     inputs:
-      action:
-        description: "export (Datasphere -> Git) or import (Git -> Datasphere)"
+      space:
+        description: "Space ID to export from"
         required: true
-        default: "export"
-        type: choice
-        options: [export, import]
       object_type:
-        description: "Object type folder, e.g. local-tables, view, data-flows"
+        description: "Object type"
         required: true
+        type: choice
         default: "local-tables"
+        options:
+          - local-tables
+          - views
+          - analytic-models
+          - data-flows
+          - transformation-flows
+          - replication-flows
+          - data-access-controls
+          - task-chains
+          - intelligent-lookups
       technical_name:
         description: "Technical name of the object"
         required: true
-      space:
-        description: "Space ID (source for export, target for import)"
-        required: true
 
 jobs:
-  run:
+  export:
+    name: Export object from Datasphere -> Git
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,7 +44,7 @@ jobs:
       - name: Install Datasphere CLI
         run: npm install -g @sap/datasphere-cli
 
-      - name: Log in to Datasphere (client_credentials, headless)
+      - name: Log in to Datasphere (Technical User, headless)
         env:
           DSP_HOST: ${{ vars.DSP_HOST }}
           DSP_CLIENT_ID: ${{ secrets.DSP_GIT_INTEGRATE_CLIENT_ID }}
@@ -49,22 +52,20 @@ jobs:
           DSP_AUTH_URL: ${{ secrets.DSP_AUTH_URL }}
           DSP_TOKEN_URL: ${{ secrets.DSP_TOKEN_URL }}
         run: |
-          datasphere login \
-            --host "$DSP_HOST" \
+          datasphere login --host "$DSP_HOST" \
             --client-id "$DSP_CLIENT_ID" \
             --client-secret "$DSP_CLIENT_SECRET" \
             --authorization-url "$DSP_AUTH_URL" \
             --token-url "$DSP_TOKEN_URL" \
             --authorization-flow client_credentials
 
-      - name: Export object (Datasphere -> file)
-        if: github.event.inputs.action == 'export'
+      - name: Export object
         env:
           DSP_HOST: ${{ vars.DSP_HOST }}
         run: |
+          SPACE="${{ github.event.inputs.space }}"
           TYPE="${{ github.event.inputs.object_type }}"
           NAME="${{ github.event.inputs.technical_name }}"
-          SPACE="${{ github.event.inputs.space }}"
           mkdir -p "objects/$TYPE"
           datasphere objects "$TYPE" read \
             --host "$DSP_HOST" \
@@ -72,38 +73,21 @@ jobs:
             --technical-name "$NAME" \
             > "objects/$TYPE/$NAME.json"
 
-      - name: Commit and push exported file
-        if: github.event.inputs.action == 'export'
+      - name: Validate exported file is non-empty
+        run: |
+          TYPE="${{ github.event.inputs.object_type }}"
+          NAME="${{ github.event.inputs.technical_name }}"
+          FILE="objects/$TYPE/$NAME.json"
+          if [ ! -s "$FILE" ]; then
+            echo "::error::$FILE is empty - export likely failed (check space ID and technical name)."
+            exit 1
+          fi
+
+      - name: Commit and push
         run: |
           git config user.name "datasphere-ci-bot"
           git config user.email "ci-bot@example.com"
           git add objects
           git diff --cached --quiet && echo "No changes to commit" || \
-            (git commit -m "Export ${{ github.event.inputs.technical_name }} (${{ github.event.inputs.object_type }}) via GitHub Actions" && \
+            (git commit -m "Export ${{ github.event.inputs.technical_name }} (${{ github.event.inputs.object_type }}) from ${{ github.event.inputs.space }}" && \
              git push origin main)
-
-      - name: Deploy object (file -> Datasphere)
-        if: github.event.inputs.action == 'import'
-        env:
-          DSP_HOST: ${{ vars.DSP_HOST }}
-        run: |
-          TYPE="${{ github.event.inputs.object_type }}"
-          NAME="${{ github.event.inputs.technical_name }}"
-          SPACE="${{ github.event.inputs.space }}"
-          FILE="objects/$TYPE/$NAME.json"
-
-          if [ ! -f "$FILE" ]; then
-            echo "::error::$FILE not found in repo. Did you check out the right branch?"
-            exit 1
-          fi
-
-          EXISTS=$(datasphere objects "$TYPE" list --host "$DSP_HOST" --space "$SPACE" --select "technicalName" \
-            | grep -c "\"$NAME\"" || true)
-
-          if [ "$EXISTS" -gt 0 ]; then
-            echo "Object exists in $SPACE, running update"
-            datasphere objects "$TYPE" update --host "$DSP_HOST" --space "$SPACE" --technical-name "$NAME" --file-path "$FILE"
-          else
-            echo "Object not found in $SPACE, running create"
-            datasphere objects "$TYPE" create --host "$DSP_HOST" --space "$SPACE" --technical-name "$NAME" --file-path "$FILE"
-          fi
