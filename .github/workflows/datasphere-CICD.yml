@@ -129,17 +129,22 @@ jobs:
 
             set +e
             datasphere objects "$TYPE" read --host "$DSP_HOST" --space "$SPACE" \
-              --technical-name "$NAME" > "$FILE" 2> /tmp/cli_err.log
+              --technical-name "$NAME" > /tmp/cli_out.log 2> /tmp/cli_err.log
             CLI_EXIT=$?
             set -e
+            cp /tmp/cli_out.log "$FILE"
 
             if [ $CLI_EXIT -ne 0 ]; then
-              echo "::error::CLI exited $CLI_EXIT reading $TYPE/$NAME. stderr:"
+              echo "::error::CLI exited $CLI_EXIT reading $TYPE/$NAME."
+              echo "--- stdout ---"
+              cat /tmp/cli_out.log
+              echo "--- stderr ---"
               cat /tmp/cli_err.log
               exit 1
             fi
             if [ ! -s "$FILE" ]; then
-              echo "::error::$FILE is empty for $TYPE/$NAME in space $SPACE. Check the technical name is exact (case-sensitive) and that the object is exposed for consumption. stderr, if any:"
+              echo "::error::$FILE is empty for $TYPE/$NAME in space $SPACE. Check the technical name is exact (case-sensitive) and that the object is exposed for consumption."
+              echo "--- stderr, if any ---"
               cat /tmp/cli_err.log
               exit 1
             fi
