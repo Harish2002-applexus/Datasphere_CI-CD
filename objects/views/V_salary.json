@@ -1,0 +1,94 @@
+{
+  "definitions": {
+    "V_salary": {
+      "@Consumption.dbHints": [
+        "USE_OLAP_PLAN"
+      ],
+      "@DataWarehouse.consumption.external": true,
+      "@DataWarehouse.sqlEditor.query": "SELECT \"ID\",\"NAME\",\"GENDER\",\"CITY\",\"SALARY\",\"CREDIT_CARD\" \r\nFROM SALARY",
+      "@EndUserText.label": "V_salary",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "CITY": {
+          "@EndUserText.label": "CITY",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "CREDIT_CARD": {
+          "@EndUserText.label": "CREDIT_CARD",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "GENDER": {
+          "@EndUserText.label": "GENDER",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "ID": {
+          "@EndUserText.label": "ID",
+          "type": "cds.Integer64"
+        },
+        "NAME": {
+          "@EndUserText.label": "NAME",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "SALARY": {
+          "@EndUserText.label": "SALARY",
+          "precision": 38,
+          "scale": 19,
+          "type": "cds.Decimal"
+        }
+      },
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "columns": [
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "NAME"
+              ]
+            },
+            {
+              "ref": [
+                "GENDER"
+              ]
+            },
+            {
+              "ref": [
+                "CITY"
+              ]
+            },
+            {
+              "ref": [
+                "SALARY"
+              ]
+            },
+            {
+              "ref": [
+                "CREDIT_CARD"
+              ]
+            }
+          ],
+          "from": {
+            "ref": [
+              "SALARY"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
