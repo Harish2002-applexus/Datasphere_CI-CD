@@ -265,7 +265,7 @@ jobs:
       max-parallel: 1
       matrix: ${{ fromJson(needs.resolve.outputs.matrix) }}
     env:
-      SPACE: ${{ vars.DSP_QA_SPACE }}
+      SPACE: ${{ vars.QA_SPACE }}
       TYPE: ${{ matrix.object_type }}
       NAME: ${{ matrix.technical_name }}
     steps:
@@ -309,7 +309,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      SPACE: ${{ vars.DSP_QA_SPACE }}
+      SPACE: ${{ vars.QA_SPACE }}
     steps:
       - uses: actions/setup-node@v4
         with:
@@ -356,7 +356,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      SPACE: ${{ vars.DSP_PROD_SPACE }}
+      SPACE: ${{ vars.PROD_SPACE }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -424,7 +424,7 @@ jobs:
       max-parallel: 1
       matrix: ${{ fromJson(needs.resolve.outputs.matrix) }}
     env:
-      SPACE: ${{ vars.DSP_PROD_SPACE }}
+      SPACE: ${{ vars.PROD_SPACE }}
       TYPE: ${{ matrix.object_type }}
       NAME: ${{ matrix.technical_name }}
     steps:
