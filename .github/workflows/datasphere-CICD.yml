@@ -100,15 +100,25 @@ jobs:
             [ -z "$NAME" ] && continue
             FILE="objects/$TYPE/$NAME.json"
 
+            set +e
             datasphere objects "$TYPE" read --host "$DSP_HOST" --space "$SPACE" \
-              --technical-name "$NAME" > "$FILE"
+              --technical-name "$NAME" > "$FILE" 2> /tmp/cli_err.log
+            CLI_EXIT=$?
+            set -e
 
+            if [ $CLI_EXIT -ne 0 ]; then
+              echo "::error::CLI exited $CLI_EXIT reading $TYPE/$NAME. stderr:"
+              cat /tmp/cli_err.log
+              exit 1
+            fi
             if [ ! -s "$FILE" ]; then
-              echo "::error::$FILE is empty - check the space ID and technical name."
+              echo "::error::$FILE is empty for $TYPE/$NAME in space $SPACE. Check the technical name is exact (case-sensitive) and that the object is exposed for consumption. stderr, if any:"
+              cat /tmp/cli_err.log
               exit 1
             fi
             if ! jq empty "$FILE" 2>/dev/null; then
-              echo "::error::$FILE is not valid JSON - the CLI likely wrote an error."
+              echo "::error::$FILE is not valid JSON - the CLI likely wrote an error message instead of the object. Contents:"
+              cat "$FILE"
               exit 1
             fi
             jq --sort-keys . "$FILE" > "$FILE.tmp" && mv "$FILE.tmp" "$FILE"
