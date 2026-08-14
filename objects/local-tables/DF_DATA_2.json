@@ -1,0 +1,35 @@
+{
+  "definitions": {
+    "DF_DATA_2": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_086983af-2eca-43f2-a24e-68aae52c6f3e_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "DF DATA_2",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "NAME": {
+          "@EndUserText.label": "NAME",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "ROLL_NO": {
+          "@EndUserText.label": "ROLL.NO",
+          "key": true,
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "VALUE": {
+          "@EndUserText.label": "VALUE",
+          "type": "cds.Integer64"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
