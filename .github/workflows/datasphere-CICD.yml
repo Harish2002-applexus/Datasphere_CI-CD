@@ -231,7 +231,8 @@ jobs:
             BEFORE="${{ github.sha }}^"
           fi
           FILES=$(git diff --name-only --diff-filter=ACM "$BEFORE" "${{ github.sha }}" -- objects \
-            | grep -E '^objects/[^/]+/.+\.json$' || true)
+            | grep -E '^objects/[^/]+/.+\.json$' \
+            | grep -v '^objects/\.provenance/' || true)
 
           if [ -z "$FILES" ]; then
             echo "matrix={\"include\":[]}" >> "$GITHUB_OUTPUT"
