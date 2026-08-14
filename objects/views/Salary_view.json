@@ -1,0 +1,408 @@
+{
+  "definitions": {
+    "Salary_view": {
+      "@DataWarehouse.consumption.external": true,
+      "@DataWarehouse.dataAccessControl.usage": [
+        {
+          "on": [
+            {
+              "ref": [
+                "Calculated_2"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "DAC_access",
+                "Maskunmask"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "Dept"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "DAC_access",
+                "Dept"
+              ]
+            }
+          ],
+          "target": "DAC_access"
+        }
+      ],
+      "@EndUserText.label": "Salary_view",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "CITY": {
+          "@EndUserText.label": "CITY",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Calculated_1": {
+          "@EndUserText.label": "Calculated_1",
+          "length": 514,
+          "type": "cds.String"
+        },
+        "Calculated_2": {
+          "@EndUserText.label": "Calculated_2",
+          "length": 1,
+          "type": "cds.String"
+        },
+        "Dept": {
+          "@EndUserText.label": "DEPARTMENT",
+          "length": 12,
+          "type": "cds.String"
+        },
+        "GENDER": {
+          "@EndUserText.label": "GENDER",
+          "length": 2,
+          "type": "cds.String"
+        },
+        "ID": {
+          "@EndUserText.label": "ID",
+          "key": true,
+          "notNull": true,
+          "type": "cds.Integer64"
+        },
+        "NAME": {
+          "@EndUserText.label": "NAME",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "SALARY": {
+          "@EndUserText.label": "SALARY",
+          "precision": 10,
+          "scale": 2,
+          "type": "cds.Decimal"
+        }
+      },
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "columns": [
+            {
+              "key": true,
+              "ref": [
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "NAME"
+              ]
+            },
+            {
+              "ref": [
+                "GENDER"
+              ]
+            },
+            {
+              "ref": [
+                "CITY"
+              ]
+            },
+            {
+              "ref": [
+                "SALARY"
+              ]
+            },
+            {
+              "ref": [
+                "Calculated_1"
+              ]
+            },
+            {
+              "ref": [
+                "Calculated_2"
+              ]
+            },
+            {
+              "ref": [
+                "Dept"
+              ]
+            }
+          ],
+          "from": {
+            "SELECT": {
+              "columns": [
+                {
+                  "key": true,
+                  "ref": [
+                    "Union 1",
+                    "ID"
+                  ]
+                },
+                {
+                  "ref": [
+                    "Union 1",
+                    "NAME"
+                  ]
+                },
+                {
+                  "ref": [
+                    "Union 1",
+                    "GENDER"
+                  ]
+                },
+                {
+                  "ref": [
+                    "Union 1",
+                    "CITY"
+                  ]
+                },
+                {
+                  "ref": [
+                    "Union 1",
+                    "SALARY"
+                  ]
+                },
+                {
+                  "ref": [
+                    "Union 1",
+                    "CREDIT_CARD"
+                  ]
+                },
+                {
+                  "as": "Calculated_2",
+                  "xpr": [
+                    "case",
+                    "when",
+                    {
+                      "ref": [
+                        "Union 1",
+                        "Calculated_1"
+                      ]
+                    },
+                    "=",
+                    {
+                      "val": "XXXX"
+                    },
+                    "then",
+                    {
+                      "val": "M"
+                    },
+                    "else",
+                    {
+                      "val": "U"
+                    },
+                    "end"
+                  ]
+                },
+                {
+                  "ref": [
+                    "Union 1",
+                    "Dept"
+                  ]
+                },
+                {
+                  "ref": [
+                    "Union 1",
+                    "Calculated_1"
+                  ]
+                }
+              ],
+              "from": {
+                "SET": {
+                  "all": true,
+                  "args": [
+                    {
+                      "SELECT": {
+                        "columns": [
+                          {
+                            "as": "ID",
+                            "key": true,
+                            "ref": [
+                              "SALARY_IL(1)",
+                              "ID"
+                            ]
+                          },
+                          {
+                            "as": "NAME",
+                            "ref": [
+                              "SALARY_IL(1)",
+                              "NAME"
+                            ]
+                          },
+                          {
+                            "as": "GENDER",
+                            "ref": [
+                              "SALARY_IL(1)",
+                              "GENDER"
+                            ]
+                          },
+                          {
+                            "as": "CITY",
+                            "ref": [
+                              "SALARY_IL(1)",
+                              "CITY"
+                            ]
+                          },
+                          {
+                            "as": "SALARY",
+                            "ref": [
+                              "SALARY_IL(1)",
+                              "SALARY"
+                            ]
+                          },
+                          {
+                            "as": "CREDIT_CARD",
+                            "ref": [
+                              "SALARY_IL(1)",
+                              "CREDIT_CARD"
+                            ]
+                          },
+                          {
+                            "as": "Calculated_1",
+                            "xpr": [
+                              {
+                                "args": [
+                                  {
+                                    "args": [
+                                      {
+                                        "ref": [
+                                          "SALARY_IL(1)",
+                                          "SALARY"
+                                        ]
+                                      }
+                                    ],
+                                    "func": "TO_VARCHAR"
+                                  },
+                                  {
+                                    "val": 0
+                                  }
+                                ],
+                                "func": "LEFT"
+                              },
+                              "||",
+                              {
+                                "val": "XXXX"
+                              },
+                              "||",
+                              {
+                                "args": [
+                                  {
+                                    "args": [
+                                      {
+                                        "ref": [
+                                          "SALARY_IL(1)",
+                                          "SALARY"
+                                        ]
+                                      }
+                                    ],
+                                    "func": "TO_VARCHAR"
+                                  },
+                                  {
+                                    "val": 0
+                                  }
+                                ],
+                                "func": "RIGHT"
+                              }
+                            ]
+                          },
+                          {
+                            "as": "Dept",
+                            "ref": [
+                              "SALARY_IL(1)",
+                              "Dept"
+                            ]
+                          }
+                        ],
+                        "from": {
+                          "as": "SALARY_IL(1)",
+                          "ref": [
+                            "SALARY_IL"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "SELECT": {
+                        "columns": [
+                          {
+                            "as": "ID",
+                            "key": true,
+                            "ref": [
+                              "ID"
+                            ]
+                          },
+                          {
+                            "as": "NAME",
+                            "ref": [
+                              "NAME"
+                            ]
+                          },
+                          {
+                            "as": "GENDER",
+                            "ref": [
+                              "GENDER"
+                            ]
+                          },
+                          {
+                            "as": "CITY",
+                            "ref": [
+                              "CITY"
+                            ]
+                          },
+                          {
+                            "as": "SALARY",
+                            "ref": [
+                              "SALARY"
+                            ]
+                          },
+                          {
+                            "as": "CREDIT_CARD",
+                            "val": null
+                          },
+                          {
+                            "as": "Calculated_1",
+                            "ref": [
+                              "CREDIT_CARD"
+                            ]
+                          },
+                          {
+                            "as": "Dept",
+                            "ref": [
+                              "Dept"
+                            ]
+                          }
+                        ],
+                        "from": {
+                          "ref": [
+                            "SALARY_IL"
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "op": "union"
+                },
+                "as": "Union 1"
+              }
+            },
+            "as": "Calculated Columns 2"
+          }
+        }
+      }
+    }
+  },
+  "editorSettings": {
+    "Salary_view": {
+      "editor": {
+        "default": "GRAPHICALVIEWBUILDER",
+        "lastModifier": "GRAPHICALVIEWBUILDER"
+      },
+      "uiModel": "{\"contents\":{\"11ee605d-4232-4583-917e-b31ae763cdec\":{\"classDefinition\":\"sap.cdw.querybuilder.Model\",\"name\":\"Salary_view\",\"label\":\"Salary_view\",\"modificationDate\":1785924639889,\"deploymentDate\":1785924671954,\"#objectStatus\":\"1\",\"output\":\"48028de6-b84d-42e4-8e16-c294527e3215\",\"nodes\":{\"48028de6-b84d-42e4-8e16-c294527e3215\":{\"name\":\"Salary_view\"},\"e653ba1f-316d-46b9-8b78-faf87671879a\":{\"name\":\"SALARY_IL\"},\"47996560-eb33-423c-bd27-f33670efa27e\":{\"name\":\"DAC_access\"},\"ecb785a4-9cff-4933-b49b-51fe6e6fb564\":{\"name\":\"Calculated Columns 1\"},\"72dde7ca-0a89-4dfd-9e6a-9d8856c4a569\":{\"name\":\"SALARY_IL\"},\"ff79b284-b8f7-4154-92f6-182e4d74f0a7\":{\"name\":\"Union 1\"},\"374efd92-5142-4bbc-8380-80624e5c480b\":{\"name\":\"Calculated Columns 2\"},\"b9f0d538-84f0-495d-8af5-d43895664a41\":{\"name\":\"Projection 2\"}},\"contexts\":{\"e5e48835-980f-413f-822c-c7f6bed231e9\":{\"name\":\"DEMO_SPACE\"}},\"diagrams\":{\"5b0debd2-2997-487c-a7e0-28dded2f53d7\":{}}},\"48028de6-b84d-42e4-8e16-c294527e3215\":{\"classDefinition\":\"sap.cdw.querybuilder.Output\",\"name\":\"Salary_view\",\"type\":\"graphicView\",\"isDeltaOutboundOn\":false,\"isDeletionVector\":false,\"isPinToMemoryEnabled\":false,\"isRestrictAccess\":true,\"modificationDate\":1785924639889,\"deploymentDate\":1785924671954,\"#objectStatus\":\"1\",\"elements\":{\"5a48d95d-7652-4a16-adb4-8ae8b37ab67a\":{\"name\":\"ID\"},\"38063bd4-3e01-4ddd-963c-909fc5e91fef\":{\"name\":\"NAME\"},\"4bfe24bb-2dba-4a45-acba-24edd1c18dde\":{\"name\":\"GENDER\"},\"1d2c8d58-0dd0-4fd3-8df8-3b4d3eb068dd\":{\"name\":\"CITY\"},\"a039d755-f344-415b-a003-43821aad15cd\":{\"name\":\"SALARY\"},\"7d63cb7f-35cd-4be7-a5a8-6dfc8557d880\":{\"name\":\"Calculated_1\"},\"4ca9649b-2ba9-4e1f-960f-28a18ad83005\":{\"name\":\"Calculated_2\"},\"9df792db-f312-4803-bf05-19b21037e8bd\":{\"name\":\"Dept\"}},\"viewDataAccessControls\":{\"e59464c0-982a-45ef-b444-a07dd110ef42\":{\"name\":\"DAC_access\"}},\"associations\":{\"e59464c0-982a-45ef-b444-a07dd110ef42\":{\"name\":\"DAC_access\"}}},\"e653ba1f-316d-46b9-8b78-faf87671879a\":{\"classDefinition\":\"sap.cdw.querybuilder.Entity\",\"name\":\"SALARY_IL\",\"label\":\"Salary_details\",\"type\":9,\"isDeltaOutboundOn\":false,\"isDeletionVector\":false,\"isPinToMemoryEnabled\":false,\"isAllowConsumption\":false,\"isHiddenInUi\":false,\"modificationDate\":1785924477990,\"deploymentDate\":1785924517089,\"#objectStatus\":\"1\",\"alias\":\"SALARY_IL(1)\",\"elements\":{\"3124c96c-5d1e-452c-85ef-874567aaf00b\":{\"name\":\"ID\"},\"5b1f9393-ef56-4e23-8816-f3cd88ff38ef\":{\"name\":\"NAME\"},\"586dd463-5e82-4630-9508-b805ea3f0d05\":{\"name\":\"GENDER\"},\"8f9e83a1-cc94-4610-9dc4-4f4e564770d9\":{\"name\":\"CITY\"},\"5a1c5170-2371-46ab-88d8-c664f28873c6\":{\"name\":\"SALARY\"},\"f0ea4256-e3b8-4205-a57b-6b5c417ac981\":{\"name\":\"CREDIT_CARD\"},\"a4784bfa-bede-40e0-b449-5021fcdae2d2\":{\"name\":\"Dept\"}},\"successorNode\":\"ecb785a4-9cff-4933-b49b-51fe6e6fb564\"},\"47996560-eb33-423c-bd27-f33670efa27e\":{\"classDefinition\":\"sap.cdw.commonmodel.DataAccessControl\",\"sourceEntityName\":\"DAC_user_access\",\"principalElementName\":\"USER_EMAIL\",\"name\":\"DAC_access\",\"label\":\"DAC_access\",\"businessDefinitionContact\":\"\",\"isDeltaOutboundOn\":false,\"isDeletionVector\":false,\"isPinToMemoryEnabled\":false,\"modificationDate\":0,\"deploymentDate\":0,\"#objectStatus\":0,\"elements\":{\"ef67d4bd-c24c-4b2a-b850-1092bd4a7511\":{\"name\":\"Dept\"},\"6862b40b-fa0e-4bec-9766-d63828a6415c\":{\"name\":\"Maskunmask\"}}},\"ecb785a4-9cff-4933-b49b-51fe6e6fb564\":{\"classDefinition\":\"sap.cdw.querybuilder.CalculatedElements\",\"name\":\"Calculated Columns 1\",\"elements\":{\"afca74a1-4b0e-4c9b-8ca3-afa45a9a3302\":{\"name\":\"ID\"},\"b1d6b33a-9d63-4e27-8ace-1a68dcbe2ee0\":{\"name\":\"NAME\"},\"1b07e1b5-02c6-4794-8185-3f42dcfea3ce\":{\"name\":\"GENDER\"},\"e71ba0b2-ec33-4038-8945-a98eab8264fb\":{\"name\":\"CITY\"},\"75b1b35f-b7bb-4579-90c7-4f8282d75e59\":{\"name\":\"SALARY\"},\"919bcfc1-6c64-4e42-a72f-9e825e03e52b\":{\"name\":\"CREDIT_CARD\"},\"9cdf03cd-a2b6-419d-9f11-af72b1c0bbac\":{\"name\":\"Calculated_1\"},\"5e3ee1aa-6b9c-49db-abe2-336575dbbf46\":{\"name\":\"Dept\"}},\"successorNode\":\"ff79b284-b8f7-4154-92f6-182e4d74f0a7\"},\"72dde7ca-0a89-4dfd-9e6a-9d8856c4a569\":{\"classDefinition\":\"sap.cdw.querybuilder.Entity\",\"name\":\"SALARY_IL\",\"label\":\"Salary_details\",\"type\":9,\"isDeltaOutboundOn\":false,\"isDeletionVector\":false,\"isPinToMemoryEnabled\":false,\"isAllowConsumption\":false,\"isHiddenInUi\":false,\"modificationDate\":1785924477990,\"deploymentDate\":1785924517089,\"#objectStatus\":\"1\",\"elements\":{\"4ac9cc91-885b-4d3f-8545-6ffd3069e4a3\":{\"name\":\"ID\"},\"9ea21a52-fed6-4081-9a28-f70aff01487b\":{\"name\":\"NAME\"},\"1629deaf-be07-4544-baa6-014ba84c6563\":{\"name\":\"GENDER\"},\"11459c96-a459-426e-a5bc-e923682be729\":{\"name\":\"CITY\"},\"b691974f-64ae-4b72-ade7-bedcf305e7ac\":{\"name\":\"SALARY\"},\"e6289b78-73c0-482d-9cff-6f6e2276ec27\":{\"name\":\"CREDIT_CARD\"},\"6bfc4216-0381-4550-827b-03b006328362\":{\"name\":\"Dept\"}},\"successorNode\":\"ff79b284-b8f7-4154-92f6-182e4d74f0a7\"},\"ff79b284-b8f7-4154-92f6-182e4d74f0a7\":{\"classDefinition\":\"sap.cdw.querybuilder.Union\",\"isUnionAll\":true,\"name\":\"Union 1\",\"elements\":{\"fab4ebee-cd81-4beb-9ba4-e95247726fcf\":{\"name\":\"ID\"},\"7f3893a1-2eec-4a05-b11f-0085706b79bd\":{\"name\":\"NAME\"},\"2cca4e53-c2fb-437a-aaf5-4c57124e8e9e\":{\"name\":\"GENDER\"},\"1830905a-a41b-41a8-a200-9f49004432bc\":{\"name\":\"CITY\"},\"cacc4de9-642c-4f3f-8753-78aecc64117c\":{\"name\":\"SALARY\"},\"575eaed1-10cc-4895-9b5d-9028102ce9fc\":{\"name\":\"CREDIT_CARD\"},\"249048aa-cd8f-46f4-9af9-be1c642c4d2b\":{\"name\":\"Calculated_1\"},\"9d02ef94-feb9-460e-923b-1cad790b460f\":{\"name\":\"Dept\"}},\"successorNode\":\"374efd92-5142-4bbc-8380-80624e5c480b\"},\"374efd92-5142-4bbc-8380-80624e5c480b\":{\"classDefinition\":\"sap.cdw.querybuilder.CalculatedElements\",\"name\":\"Calculated Columns 2\",\"elements\":{\"6d53552b-190b-44ae-8f3b-7bba4727a186\":{\"name\":\"ID\"},\"25471275-c0a6-4edf-9e43-637e8a1c7955\":{\"name\":\"NAME\"},\"11183435-5d32-4408-8f4d-3277f762d9a4\":{\"name\":\"GENDER\"},\"9fba6ff6-21e8-46a3-8acd-bbd07f51290c\":{\"name\":\"CITY\"},\"c02183a2-ee46-4fd7-9b2a-0b4ae63b5731\":{\"name\":\"SALARY\"},\"751cf041-679a-4843-a5cc-a0b8cdb82108\":{\"name\":\"CREDIT_CARD\"},\"49d581d3-1b44-4e25-8dbd-9056288b7f3f\":{\"name\":\"Calculated_1\"},\"b8285555-e0a0-41de-a2ff-e3dc55d992b3\":{\"name\":\"Calculated_2\"},\"69a3e951-3a66-4d9b-8d20-b1cca6e7e13f\":{\"name\":\"Dept\"}},\"successorNode\":\"b9f0d538-84f0-495d-8af5-d43895664a41\"},\"b9f0d538-84f0-495d-8af5-d43895664a41\":{\"classDefinition\":\"sap.cdw.querybuilder.RenameElements\",\"_isProjectionNode\":false,\"name\":\"Projection 2\",\"elements\":{\"0f4396f9-7586-4a40-a304-fe5e24539a51\":{\"name\":\"ID\"},\"43834ade-b516-45f0-989e-451a1ee23d7c\":{\"name\":\"NAME\"},\"decb0045-7e15-428d-967c-16cd0b049c68\":{\"name\":\"GENDER\"},\"43aeabf4-47fa-4405-bb7b-3b240c0ea7a3\":{\"name\":\"CITY\"},\"f757e4cd-d1dc-4657-b464-f1a955f90ea3\":{\"name\":\"SALARY\"},\"9095b706-e9d6-41e8-9c54-41b7a2596d4e\":{\"name\":\"CREDIT_CARD\"},\"6df89d4c-00a0-4ab2-ab0b-8f06a6df8f2d\":{\"name\":\"Calculated_1\"},\"aed218b3-a875-43d1-9bc9-354e4f28a87a\":{\"name\":\"Calculated_2\"},\"4abb204d-0b81-48bb-8157-94f0356b2d28\":{\"name\":\"Dept\"}},\"successorNode\":\"48028de6-b84d-42e4-8e16-c294527e3215\"},\"e5e48835-980f-413f-822c-c7f6bed231e9\":{\"classDefinition\":\"sap.cdw.commonmodel.Context\",\"name\":\"DEMO_SPACE\",\"label\":\"Demo Space\",\"crossSpace\":{\"schema\":\"DEMO_SPACE\",\"space\":\"DEMO_SPACE\"}},\"5b0debd2-2997-487c-a7e0-28dded2f53d7\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.Diagram\",\"symbols\":{\"01a6a193-64c6-43c9-92ea-1ba4ccd7a0fe\":{},\"bd198b27-8329-4997-8d1d-815081d400aa\":{\"name\":\"Entity Symbol 1\"},\"fecaf379-2c70-49c2-a1b2-350e7250b9dd\":{},\"75c496c6-c016-44af-b84e-f48f65a56871\":{},\"21dd9369-7450-42df-aaec-ef566ed172b4\":{},\"86243e20-54b9-483f-907e-0cd4a4948771\":{},\"c517936f-5478-4fe2-87ef-fb18246451bb\":{},\"2ce2599a-c6be-4871-a99c-f7041007d131\":{},\"58ef33dd-80fc-4dfb-bb23-65dd6d11b367\":{},\"8de0d965-f14e-479a-ad79-b4ff2ad048c9\":{},\"7fef98c1-1796-4cba-a5dc-1d886098f345\":{},\"13c4bdaa-0d72-442b-95dd-bf426d5e11a9\":{},\"63bad7d2-be29-47a6-bf29-9bb65302dc51\":{},\"6c854c0a-08dd-4e89-848f-73f39852bafe\":{},\"a9a27471-1617-4ff2-8f6d-697a9d485499\":{}}},\"5a48d95d-7652-4a16-adb4-8ae8b37ab67a\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"ID\",\"label\":\"ID\",\"newName\":\"ID\",\"indexOrder\":0,\"isCalculated\":true,\"isKey\":true,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"isNotNull\":true},\"38063bd4-3e01-4ddd-963c-909fc5e91fef\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"NAME\",\"label\":\"NAME\",\"newName\":\"NAME\",\"indexOrder\":1,\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"4bfe24bb-2dba-4a45-acba-24edd1c18dde\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"GENDER\",\"label\":\"GENDER\",\"newName\":\"GENDER\",\"indexOrder\":2,\"isCalculated\":true,\"length\":2,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"foreignKey\":\"DAC_access\"},\"1d2c8d58-0dd0-4fd3-8df8-3b4d3eb068dd\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CITY\",\"label\":\"CITY\",\"newName\":\"CITY\",\"indexOrder\":3,\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"a039d755-f344-415b-a003-43821aad15cd\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SALARY\",\"label\":\"SALARY\",\"newName\":\"SALARY\",\"indexOrder\":4,\"isCalculated\":true,\"dataType\":\"cds.Decimal\",\"length\":0,\"precision\":10,\"scale\":2,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"7d63cb7f-35cd-4be7-a5a8-6dfc8557d880\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_1\",\"label\":\"Calculated_1\",\"newName\":\"Calculated_1\",\"indexOrder\":6,\"expression\":\"\",\"isCalculated\":true,\"length\":514,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"4ca9649b-2ba9-4e1f-960f-28a18ad83005\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_2\",\"label\":\"Calculated_2\",\"newName\":\"Calculated_2\",\"indexOrder\":7,\"expression\":\"\",\"isCalculated\":true,\"length\":1,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"foreignKey\":\"DAC_access\"},\"9df792db-f312-4803-bf05-19b21037e8bd\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Dept\",\"label\":\"DEPARTMENT\",\"newName\":\"Dept\",\"indexOrder\":8,\"expression\":\"Dept\",\"isCalculated\":true,\"length\":12,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"3124c96c-5d1e-452c-85ef-874567aaf00b\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"ID\",\"label\":\"ID\",\"newName\":\"ID\",\"indexOrder\":0,\"isKey\":true,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"isNotNull\":true,\"successorElement\":\"afca74a1-4b0e-4c9b-8ca3-afa45a9a3302\"},\"5b1f9393-ef56-4e23-8816-f3cd88ff38ef\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"NAME\",\"label\":\"NAME\",\"newName\":\"NAME\",\"indexOrder\":1,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"b1d6b33a-9d63-4e27-8ace-1a68dcbe2ee0\"},\"586dd463-5e82-4630-9508-b805ea3f0d05\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"GENDER\",\"label\":\"GENDER\",\"newName\":\"GENDER\",\"indexOrder\":2,\"length\":2,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"1b07e1b5-02c6-4794-8185-3f42dcfea3ce\"},\"8f9e83a1-cc94-4610-9dc4-4f4e564770d9\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CITY\",\"label\":\"CITY\",\"newName\":\"CITY\",\"indexOrder\":3,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"e71ba0b2-ec33-4038-8945-a98eab8264fb\"},\"5a1c5170-2371-46ab-88d8-c664f28873c6\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SALARY\",\"label\":\"SALARY\",\"newName\":\"SALARY\",\"indexOrder\":4,\"dataType\":\"cds.Decimal\",\"length\":0,\"precision\":10,\"scale\":2,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"75b1b35f-b7bb-4579-90c7-4f8282d75e59\"},\"f0ea4256-e3b8-4205-a57b-6b5c417ac981\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CREDIT_CARD\",\"label\":\"CREDIT_CARD\",\"newName\":\"CREDIT_CARD\",\"indexOrder\":5,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"919bcfc1-6c64-4e42-a72f-9e825e03e52b\"},\"a4784bfa-bede-40e0-b449-5021fcdae2d2\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Dept\",\"label\":\"DEPARTMENT\",\"newName\":\"Dept\",\"indexOrder\":6,\"length\":12,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"5e3ee1aa-6b9c-49db-abe2-336575dbbf46\"},\"afca74a1-4b0e-4c9b-8ca3-afa45a9a3302\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"ID\",\"label\":\"ID\",\"newName\":\"ID\",\"indexOrder\":0,\"expression\":\"ID\",\"isCalculated\":true,\"isKey\":true,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"isNotNull\":true,\"successorElement\":\"fab4ebee-cd81-4beb-9ba4-e95247726fcf\"},\"b1d6b33a-9d63-4e27-8ace-1a68dcbe2ee0\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"NAME\",\"label\":\"NAME\",\"newName\":\"NAME\",\"indexOrder\":1,\"expression\":\"NAME\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"7f3893a1-2eec-4a05-b11f-0085706b79bd\"},\"1b07e1b5-02c6-4794-8185-3f42dcfea3ce\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"GENDER\",\"label\":\"GENDER\",\"newName\":\"GENDER\",\"indexOrder\":2,\"expression\":\"GENDER\",\"isCalculated\":true,\"length\":2,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"2cca4e53-c2fb-437a-aaf5-4c57124e8e9e\"},\"e71ba0b2-ec33-4038-8945-a98eab8264fb\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CITY\",\"label\":\"CITY\",\"newName\":\"CITY\",\"indexOrder\":3,\"expression\":\"CITY\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"1830905a-a41b-41a8-a200-9f49004432bc\"},\"75b1b35f-b7bb-4579-90c7-4f8282d75e59\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SALARY\",\"label\":\"SALARY\",\"newName\":\"SALARY\",\"indexOrder\":4,\"expression\":\"SALARY\",\"isCalculated\":true,\"dataType\":\"cds.Decimal\",\"length\":0,\"precision\":10,\"scale\":2,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"cacc4de9-642c-4f3f-8753-78aecc64117c\"},\"919bcfc1-6c64-4e42-a72f-9e825e03e52b\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CREDIT_CARD\",\"label\":\"CREDIT_CARD\",\"newName\":\"CREDIT_CARD\",\"indexOrder\":5,\"expression\":\"CREDIT_CARD\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"575eaed1-10cc-4895-9b5d-9028102ce9fc\"},\"9cdf03cd-a2b6-419d-9f11-af72b1c0bbac\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_1\",\"label\":\"Calculated_1\",\"newName\":\"Calculated_1\",\"indexOrder\":6,\"expression\":\"LEFT(TO_VARCHAR(SALARY), 0) || 'XXXX' || RIGHT(TO_VARCHAR(SALARY), 0)\",\"isCalculated\":true,\"length\":514,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"249048aa-cd8f-46f4-9af9-be1c642c4d2b\"},\"5e3ee1aa-6b9c-49db-abe2-336575dbbf46\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Dept\",\"label\":\"DEPARTMENT\",\"newName\":\"Dept\",\"indexOrder\":6,\"expression\":\"Dept\",\"isCalculated\":true,\"length\":12,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"9d02ef94-feb9-460e-923b-1cad790b460f\"},\"4ac9cc91-885b-4d3f-8545-6ffd3069e4a3\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"ID\",\"label\":\"ID\",\"newName\":\"ID\",\"indexOrder\":0,\"isKey\":true,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"isNotNull\":true,\"successorElement\":\"fab4ebee-cd81-4beb-9ba4-e95247726fcf\"},\"9ea21a52-fed6-4081-9a28-f70aff01487b\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"NAME\",\"label\":\"NAME\",\"newName\":\"NAME\",\"indexOrder\":1,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"7f3893a1-2eec-4a05-b11f-0085706b79bd\"},\"1629deaf-be07-4544-baa6-014ba84c6563\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"GENDER\",\"label\":\"GENDER\",\"newName\":\"GENDER\",\"indexOrder\":2,\"length\":2,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"2cca4e53-c2fb-437a-aaf5-4c57124e8e9e\"},\"11459c96-a459-426e-a5bc-e923682be729\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CITY\",\"label\":\"CITY\",\"newName\":\"CITY\",\"indexOrder\":3,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"1830905a-a41b-41a8-a200-9f49004432bc\"},\"b691974f-64ae-4b72-ade7-bedcf305e7ac\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SALARY\",\"label\":\"SALARY\",\"newName\":\"SALARY\",\"indexOrder\":4,\"dataType\":\"cds.Decimal\",\"length\":0,\"precision\":10,\"scale\":2,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"cacc4de9-642c-4f3f-8753-78aecc64117c\"},\"e6289b78-73c0-482d-9cff-6f6e2276ec27\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CREDIT_CARD\",\"label\":\"CREDIT_CARD\",\"newName\":\"CREDIT_CARD\",\"indexOrder\":5,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"249048aa-cd8f-46f4-9af9-be1c642c4d2b\"},\"6bfc4216-0381-4550-827b-03b006328362\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Dept\",\"label\":\"DEPARTMENT\",\"newName\":\"Dept\",\"indexOrder\":6,\"length\":12,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"9d02ef94-feb9-460e-923b-1cad790b460f\"},\"fab4ebee-cd81-4beb-9ba4-e95247726fcf\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"ID\",\"label\":\"ID\",\"newName\":\"ID\",\"indexOrder\":0,\"expression\":\"ID\",\"isKey\":true,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"isNotNull\":true,\"successorElement\":\"6d53552b-190b-44ae-8f3b-7bba4727a186\"},\"7f3893a1-2eec-4a05-b11f-0085706b79bd\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"NAME\",\"label\":\"NAME\",\"newName\":\"NAME\",\"indexOrder\":1,\"expression\":\"NAME\",\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"25471275-c0a6-4edf-9e43-637e8a1c7955\"},\"2cca4e53-c2fb-437a-aaf5-4c57124e8e9e\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"GENDER\",\"label\":\"GENDER\",\"newName\":\"GENDER\",\"indexOrder\":2,\"expression\":\"GENDER\",\"length\":2,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"11183435-5d32-4408-8f4d-3277f762d9a4\"},\"1830905a-a41b-41a8-a200-9f49004432bc\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CITY\",\"label\":\"CITY\",\"newName\":\"CITY\",\"indexOrder\":3,\"expression\":\"CITY\",\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"9fba6ff6-21e8-46a3-8acd-bbd07f51290c\"},\"cacc4de9-642c-4f3f-8753-78aecc64117c\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SALARY\",\"label\":\"SALARY\",\"newName\":\"SALARY\",\"indexOrder\":4,\"expression\":\"SALARY\",\"dataType\":\"cds.Decimal\",\"length\":0,\"precision\":10,\"scale\":2,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"c02183a2-ee46-4fd7-9b2a-0b4ae63b5731\"},\"575eaed1-10cc-4895-9b5d-9028102ce9fc\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CREDIT_CARD\",\"label\":\"CREDIT_CARD\",\"newName\":\"CREDIT_CARD\",\"indexOrder\":5,\"expression\":\"CREDIT_CARD\",\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"751cf041-679a-4843-a5cc-a0b8cdb82108\"},\"249048aa-cd8f-46f4-9af9-be1c642c4d2b\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_1\",\"label\":\"Calculated_1\",\"newName\":\"Calculated_1\",\"indexOrder\":6,\"expression\":\"LEFT(TO_VARCHAR(SALARY), 0) || 'XXXX' || RIGHT(TO_VARCHAR(SALARY), 0)\",\"length\":514,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"49d581d3-1b44-4e25-8dbd-9056288b7f3f\"},\"9d02ef94-feb9-460e-923b-1cad790b460f\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Dept\",\"label\":\"DEPARTMENT\",\"newName\":\"Dept\",\"indexOrder\":6,\"length\":12,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"69a3e951-3a66-4d9b-8d20-b1cca6e7e13f\"},\"6d53552b-190b-44ae-8f3b-7bba4727a186\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"ID\",\"label\":\"ID\",\"newName\":\"ID\",\"indexOrder\":0,\"expression\":\"ID\",\"isCalculated\":true,\"isKey\":true,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"isNotNull\":true,\"successorElement\":\"0f4396f9-7586-4a40-a304-fe5e24539a51\"},\"25471275-c0a6-4edf-9e43-637e8a1c7955\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"NAME\",\"label\":\"NAME\",\"newName\":\"NAME\",\"indexOrder\":1,\"expression\":\"NAME\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"43834ade-b516-45f0-989e-451a1ee23d7c\"},\"11183435-5d32-4408-8f4d-3277f762d9a4\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"GENDER\",\"label\":\"GENDER\",\"newName\":\"GENDER\",\"indexOrder\":2,\"expression\":\"GENDER\",\"isCalculated\":true,\"length\":2,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"decb0045-7e15-428d-967c-16cd0b049c68\"},\"9fba6ff6-21e8-46a3-8acd-bbd07f51290c\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CITY\",\"label\":\"CITY\",\"newName\":\"CITY\",\"indexOrder\":3,\"expression\":\"CITY\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"43aeabf4-47fa-4405-bb7b-3b240c0ea7a3\"},\"c02183a2-ee46-4fd7-9b2a-0b4ae63b5731\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SALARY\",\"label\":\"SALARY\",\"newName\":\"SALARY\",\"indexOrder\":4,\"expression\":\"SALARY\",\"isCalculated\":true,\"dataType\":\"cds.Decimal\",\"length\":0,\"precision\":10,\"scale\":2,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"f757e4cd-d1dc-4657-b464-f1a955f90ea3\"},\"751cf041-679a-4843-a5cc-a0b8cdb82108\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CREDIT_CARD\",\"label\":\"CREDIT_CARD\",\"newName\":\"CREDIT_CARD\",\"indexOrder\":5,\"expression\":\"CREDIT_CARD\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"9095b706-e9d6-41e8-9c54-41b7a2596d4e\"},\"49d581d3-1b44-4e25-8dbd-9056288b7f3f\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_1\",\"label\":\"Calculated_1\",\"newName\":\"Calculated_1\",\"indexOrder\":7,\"expression\":\"Calculated_1\",\"isCalculated\":true,\"length\":514,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"6df89d4c-00a0-4ab2-ab0b-8f06a6df8f2d\"},\"b8285555-e0a0-41de-a2ff-e3dc55d992b3\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_2\",\"label\":\"Calculated_2\",\"newName\":\"Calculated_2\",\"indexOrder\":6,\"expression\":\"CASE when Calculated_1= 'XXXX'\\nthen 'M'else 'U' end\",\"isCalculated\":true,\"length\":1,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"aed218b3-a875-43d1-9bc9-354e4f28a87a\"},\"69a3e951-3a66-4d9b-8d20-b1cca6e7e13f\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Dept\",\"label\":\"DEPARTMENT\",\"newName\":\"Dept\",\"indexOrder\":6,\"expression\":\"Dept\",\"isCalculated\":true,\"length\":12,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"4abb204d-0b81-48bb-8157-94f0356b2d28\"},\"0f4396f9-7586-4a40-a304-fe5e24539a51\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"ID\",\"label\":\"ID\",\"newName\":\"ID\",\"indexOrder\":0,\"expression\":\"ID\",\"isCalculated\":true,\"isKey\":true,\"dataType\":\"cds.Integer64\",\"length\":0,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"isNotNull\":true,\"successorElement\":\"5a48d95d-7652-4a16-adb4-8ae8b37ab67a\"},\"43834ade-b516-45f0-989e-451a1ee23d7c\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"NAME\",\"label\":\"NAME\",\"newName\":\"NAME\",\"indexOrder\":1,\"expression\":\"NAME\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"38063bd4-3e01-4ddd-963c-909fc5e91fef\"},\"decb0045-7e15-428d-967c-16cd0b049c68\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"GENDER\",\"label\":\"GENDER\",\"newName\":\"GENDER\",\"indexOrder\":2,\"expression\":\"GENDER\",\"isCalculated\":true,\"length\":2,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"4bfe24bb-2dba-4a45-acba-24edd1c18dde\"},\"43aeabf4-47fa-4405-bb7b-3b240c0ea7a3\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CITY\",\"label\":\"CITY\",\"newName\":\"CITY\",\"indexOrder\":3,\"expression\":\"CITY\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"1d2c8d58-0dd0-4fd3-8df8-3b4d3eb068dd\"},\"f757e4cd-d1dc-4657-b464-f1a955f90ea3\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"SALARY\",\"label\":\"SALARY\",\"newName\":\"SALARY\",\"indexOrder\":4,\"expression\":\"SALARY\",\"isCalculated\":true,\"dataType\":\"cds.Decimal\",\"length\":0,\"precision\":10,\"scale\":2,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"a039d755-f344-415b-a003-43821aad15cd\"},\"9095b706-e9d6-41e8-9c54-41b7a2596d4e\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"CREDIT_CARD\",\"label\":\"CREDIT_CARD\",\"newName\":\"CREDIT_CARD\",\"isRemoved\":true,\"indexOrder\":5,\"expression\":\"CREDIT_CARD\",\"isCalculated\":true,\"length\":5000,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false},\"6df89d4c-00a0-4ab2-ab0b-8f06a6df8f2d\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_1\",\"label\":\"Calculated_1\",\"newName\":\"Calculated_1\",\"indexOrder\":8,\"expression\":\"Calculated_1\",\"isCalculated\":true,\"length\":514,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"7d63cb7f-35cd-4be7-a5a8-6dfc8557d880\"},\"aed218b3-a875-43d1-9bc9-354e4f28a87a\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Calculated_2\",\"label\":\"Calculated_2\",\"newName\":\"Calculated_2\",\"indexOrder\":6,\"expression\":\"CASE when Calculated_1= 'XXXX'\\nthen 'M'else 'U' end\",\"isCalculated\":true,\"length\":1,\"precision\":0,\"scale\":0,\"precisionsTable\":\"SAP.CURRENCY.VIEW.TCURX\",\"configurationTable\":\"SAP.CURRENCY.VIEW.TCURV\",\"prefactorsTable\":\"SAP.CURRENCY.VIEW.TCURF\",\"ratesTable\":\"SAP.CURRENCY.VIEW.TCURR\",\"notationsTable\":\"SAP.CURRENCY.VIEW.TCURN\",\"conversionCodesTable\":\"SAP.CURRENCY.VIEW.TCURC\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"4ca9649b-2ba9-4e1f-960f-28a18ad83005\"},\"4abb204d-0b81-48bb-8157-94f0356b2d28\":{\"classDefinition\":\"sap.cdw.querybuilder.Element\",\"name\":\"Dept\",\"label\":\"DEPARTMENT\",\"newName\":\"Dept\",\"indexOrder\":7,\"expression\":\"Dept\",\"isCalculated\":true,\"length\":12,\"precision\":0,\"scale\":0,\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"successorElement\":\"9df792db-f312-4803-bf05-19b21037e8bd\"},\"01a6a193-64c6-43c9-92ea-1ba4ccd7a0fe\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.OutputSymbol\",\"x\":322.9999988079071,\"y\":-30.00416150495826,\"width\":140,\"height\":40,\"object\":\"48028de6-b84d-42e4-8e16-c294527e3215\"},\"bd198b27-8329-4997-8d1d-815081d400aa\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.EntitySymbol\",\"name\":\"Entity Symbol 1\",\"x\":-438.9999988079071,\"y\":23.000000000000014,\"width\":160,\"displayName\":\"Entity Symbol 1\",\"object\":\"e653ba1f-316d-46b9-8b78-faf87671879a\"},\"fecaf379-2c70-49c2-a1b2-350e7250b9dd\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.CalculatedSymbol\",\"font\":\"bold 11px \\\"72\\\",\\\"72full\\\",Arial,Helvetica,sans-serif\",\"x\":-168.9999988079071,\"y\":27.000000000000014,\"object\":\"ecb785a4-9cff-4933-b49b-51fe6e6fb564\"},\"75c496c6-c016-44af-b84e-f48f65a56871\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.UnionSymbol\",\"font\":\"bold 11px \\\"72\\\",\\\"72full\\\",Arial,Helvetica,sans-serif\",\"x\":-96,\"y\":-60.95742990990439,\"isHidden\":true},\"21dd9369-7450-42df-aaec-ef566ed172b4\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.UnionSymbol\",\"font\":\"bold 11px \\\"72\\\",\\\"72full\\\",Arial,Helvetica,sans-serif\",\"x\":-47,\"y\":-60.027475130541475,\"isHidden\":true},\"86243e20-54b9-483f-907e-0cd4a4948771\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.UnionSymbol\",\"font\":\"bold 11px \\\"72\\\",\\\"72full\\\",Arial,Helvetica,sans-serif\",\"x\":9,\"y\":-23.55832829693516,\"object\":\"ff79b284-b8f7-4154-92f6-182e4d74f0a7\"},\"c517936f-5478-4fe2-87ef-fb18246451bb\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"-120.9999988079071,43.000000000000014 -25.999999403953552,43.000000000000014 -25.999999403953552,-2.22499496360183 9,-2.22499496360183\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"fecaf379-2c70-49c2-a1b2-350e7250b9dd\",\"targetSymbol\":\"86243e20-54b9-483f-907e-0cd4a4948771\"},\"2ce2599a-c6be-4871-a99c-f7041007d131\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.EntitySymbol\",\"_height\":40,\"x\":-228.9999988079071,\"y\":-63.000000000000014,\"width\":168,\"object\":\"72dde7ca-0a89-4dfd-9e6a-9d8856c4a569\"},\"58ef33dd-80fc-4dfb-bb23-65dd6d11b367\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"-60.999998807907104,-43.000000000000014 -25.999999403953552,-43.000000000000014 -25.999999403953552,-12.891661630268494 9,-12.891661630268494\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"2ce2599a-c6be-4871-a99c-f7041007d131\",\"targetSymbol\":\"86243e20-54b9-483f-907e-0cd4a4948771\"},\"8de0d965-f14e-479a-ad79-b4ff2ad048c9\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.CalculatedSymbol\",\"font\":\"bold 11px \\\"72\\\",\\\"72full\\\",Arial,Helvetica,sans-serif\",\"x\":107,\"y\":-23.55832829693516,\"object\":\"374efd92-5142-4bbc-8380-80624e5c480b\"},\"7fef98c1-1796-4cba-a5dc-1d886098f345\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"57,-7.558328296935159 107,-7.558328296935159\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"86243e20-54b9-483f-907e-0cd4a4948771\",\"targetSymbol\":\"8de0d965-f14e-479a-ad79-b4ff2ad048c9\"},\"13c4bdaa-0d72-442b-95dd-bf426d5e11a9\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.RenameSymbol\",\"font\":\"bold 11px \\\"72\\\",\\\"72full\\\",Arial,Helvetica,sans-serif\",\"x\":224.9999988079071,\"y\":-26.004161504958276,\"object\":\"b9f0d538-84f0-495d-8af5-d43895664a41\"},\"63bad7d2-be29-47a6-bf29-9bb65302dc51\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"155,-7.558328296935159 189.99999940395355,-7.558328296935159 189.99999940395355,-10.004161504958276 224.9999988079071,-10.004161504958276\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"8de0d965-f14e-479a-ad79-b4ff2ad048c9\",\"targetSymbol\":\"13c4bdaa-0d72-442b-95dd-bf426d5e11a9\"},\"6c854c0a-08dd-4e89-848f-73f39852bafe\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"272.9999988079071,-10.004161504958276 322.9999988079071,-10.004161504958276\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"13c4bdaa-0d72-442b-95dd-bf426d5e11a9\",\"targetSymbol\":\"01a6a193-64c6-43c9-92ea-1ba4ccd7a0fe\"},\"a9a27471-1617-4ff2-8f6d-697a9d485499\":{\"classDefinition\":\"sap.cdw.querybuilder.ui.AssociationSymbol\",\"points\":\"-278.9999988079071,43.000000000000014 -168.9999988079071,43.000000000000014\",\"contentOffsetX\":5,\"contentOffsetY\":5,\"sourceSymbol\":\"bd198b27-8329-4997-8d1d-815081d400aa\",\"targetSymbol\":\"fecaf379-2c70-49c2-a1b2-350e7250b9dd\"},\"e59464c0-982a-45ef-b444-a07dd110ef42\":{\"classDefinition\":\"sap.cdw.commonmodel.ViewDataAccessControl\",\"name\":\"DAC_access\",\"view\":\"48028de6-b84d-42e4-8e16-c294527e3215\",\"dataAccessControl\":\"47996560-eb33-423c-bd27-f33670efa27e\",\"mappings\":{\"cd50698e-d2b8-4c90-ab3c-e273af47fd7f\":{},\"ed6dbb29-3f94-4713-b6df-a5e74b559942\":{}}},\"ef67d4bd-c24c-4b2a-b850-1092bd4a7511\":{\"classDefinition\":\"sap.cdw.commonmodel.Element\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"name\":\"Dept\",\"label\":\"Dept\",\"length\":100,\"precision\":0,\"scale\":0,\"indexOrder\":0},\"6862b40b-fa0e-4bec-9766-d63828a6415c\":{\"classDefinition\":\"sap.cdw.commonmodel.Element\",\"isMeasureBeforeAI\":false,\"isMeasureAI\":false,\"isKeyBeforeAI\":false,\"isKeyAI\":false,\"name\":\"Maskunmask\",\"label\":\"Mask/unmask\",\"length\":100,\"precision\":0,\"scale\":0,\"indexOrder\":1},\"2c4d5e19-66fe-4eb0-bbac-e4cbe712c393\":{\"classDefinition\":\"sap.cdw.commonmodel.ElementMapping\",\"source\":\"4ca9649b-2ba9-4e1f-960f-28a18ad83005\",\"target\":\"6862b40b-fa0e-4bec-9766-d63828a6415c\"},\"faf416e2-09e2-4843-94ef-98d6e0914e0d\":{\"classDefinition\":\"sap.cdw.commonmodel.ElementMapping\",\"source\":\"9df792db-f312-4803-bf05-19b21037e8bd\",\"target\":\"ef67d4bd-c24c-4b2a-b850-1092bd4a7511\"},\"cd50698e-d2b8-4c90-ab3c-e273af47fd7f\":{\"classDefinition\":\"sap.cdw.commonmodel.ElementMapping\",\"source\":\"4ca9649b-2ba9-4e1f-960f-28a18ad83005\",\"target\":\"6862b40b-fa0e-4bec-9766-d63828a6415c\"},\"ed6dbb29-3f94-4713-b6df-a5e74b559942\":{\"classDefinition\":\"sap.cdw.commonmodel.ElementMapping\",\"source\":\"9df792db-f312-4803-bf05-19b21037e8bd\",\"target\":\"ef67d4bd-c24c-4b2a-b850-1092bd4a7511\"}}}"
+    }
+  }
+}
