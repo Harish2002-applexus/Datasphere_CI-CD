@@ -1,0 +1,633 @@
+{
+  "definitions": {
+    "Transfor_View_2lis": {
+      "@DataWarehouse.consumption.external": false,
+      "@DataWarehouse.delta": {
+        "deltaFromEntities": [
+          "Transfor_View_2lis_Delta"
+        ],
+        "type": {
+          "#": "ACTIVE"
+        }
+      },
+      "@DataWarehouse.repository.technicalType": {
+        "#": "DWC_LOCAL_TABLE"
+      },
+      "@EndUserText.label": "Transfor_View_2lis",
+      "elements": {
+        "AEDAT": {
+          "@EndUserText.label": "Last Changed Date",
+          "key": false,
+          "type": "cds.Date"
+        },
+        "ANZAU": {
+          "@EndUserText.label": "Number of Orders",
+          "key": false,
+          "precision": 17,
+          "scale": 3,
+          "type": "cds.Decimal"
+        },
+        "AUART": {
+          "@EndUserText.label": "Sales Document Type",
+          "key": false,
+          "length": 4,
+          "type": "cds.String"
+        },
+        "AUDAT": {
+          "@EndUserText.label": "Document Date",
+          "key": false,
+          "type": "cds.Date"
+        },
+        "AUFNR": {
+          "@EndUserText.label": "CO Order Number",
+          "key": false,
+          "length": 12,
+          "type": "cds.String"
+        },
+        "AUGRU": {
+          "@EndUserText.label": "Order Reason",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "AUTLF": {
+          "@EndUserText.label": "Complete Delivery",
+          "key": false,
+          "length": 1,
+          "type": "cds.String"
+        },
+        "BSARK": {
+          "@EndUserText.label": "Customer Purchase Order Type",
+          "key": false,
+          "length": 4,
+          "type": "cds.String"
+        },
+        "BUKRS": {
+          "@EndUserText.label": "Company Code",
+          "key": false,
+          "length": 4,
+          "type": "cds.String"
+        },
+        "CMWAE": {
+          "@EndUserText.label": "Credit Management Currency",
+          "key": false,
+          "length": 5,
+          "type": "cds.String"
+        },
+        "ERDAT": {
+          "@EndUserText.label": "Creation Date",
+          "key": false,
+          "type": "cds.Date"
+        },
+        "ERNAM": {
+          "@EndUserText.label": "Created By",
+          "key": false,
+          "length": 12,
+          "type": "cds.String"
+        },
+        "ERZET": {
+          "@EndUserText.label": "Creation Time",
+          "key": false,
+          "type": "cds.Time"
+        },
+        "FAKSK": {
+          "@EndUserText.label": "Billing Block",
+          "key": false,
+          "length": 2,
+          "type": "cds.String"
+        },
+        "HWAER": {
+          "@EndUserText.label": "Local Currency",
+          "key": false,
+          "length": 5,
+          "type": "cds.String"
+        },
+        "KOKRS": {
+          "@EndUserText.label": "Controlling Area",
+          "key": false,
+          "length": 4,
+          "type": "cds.String"
+        },
+        "KOSTL": {
+          "@EndUserText.label": "Cost Center",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "KTEXT": {
+          "@EndUserText.label": "Description",
+          "key": false,
+          "length": 40,
+          "type": "cds.String"
+        },
+        "KUNNR": {
+          "@EndUserText.label": "Customer Number",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "KURST": {
+          "@EndUserText.label": "Exchange Rate Type",
+          "key": false,
+          "length": 4,
+          "type": "cds.String"
+        },
+        "KVGR1": {
+          "@EndUserText.label": "Customer Group 1",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "KVGR2": {
+          "@EndUserText.label": "Customer Group 2",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "KVGR3": {
+          "@EndUserText.label": "Customer Group 3",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "KVGR4": {
+          "@EndUserText.label": "Customer Group 4",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "KVGR5": {
+          "@EndUserText.label": "Customer Group 5",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "LAND1": {
+          "@EndUserText.label": "Country Key",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "LAST_CHANGED_BY_USER": {
+          "@EndUserText.label": "Last Changed By",
+          "key": false,
+          "length": 12,
+          "type": "cds.String"
+        },
+        "LIFSK": {
+          "@EndUserText.label": "Delivery Block",
+          "key": false,
+          "length": 2,
+          "type": "cds.String"
+        },
+        "MANDT": {
+          "@EndUserText.label": "Client",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "NETWR": {
+          "@EndUserText.label": "Net Value",
+          "key": false,
+          "type": "cds.DecimalFloat"
+        },
+        "OBJNR": {
+          "@EndUserText.label": "Object Number",
+          "key": false,
+          "length": 22,
+          "type": "cds.String"
+        },
+        "ODQ_CHANGEMODE": {
+          "@EndUserText.label": "ODQ Change Mode",
+          "key": false,
+          "length": 1,
+          "type": "cds.String"
+        },
+        "ODQ_ENTITYCNTR": {
+          "@EndUserText.label": "ODQ Entity Counter",
+          "key": false,
+          "precision": 17,
+          "scale": 0,
+          "type": "cds.Decimal"
+        },
+        "PERIV": {
+          "@EndUserText.label": "Fiscal Year Variant",
+          "key": false,
+          "length": 2,
+          "type": "cds.String"
+        },
+        "PKUNRE": {
+          "@EndUserText.label": "Bill-to Party",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "PKUNRG": {
+          "@EndUserText.label": "Payer",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "PKUNWE": {
+          "@EndUserText.label": "Ship-to Party",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "PVRTNR": {
+          "@EndUserText.label": "Sales Employee",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "SPARA": {
+          "@EndUserText.label": "Parallel Processing",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "SPART": {
+          "@EndUserText.label": "Division",
+          "key": false,
+          "length": 2,
+          "type": "cds.String"
+        },
+        "STWAE": {
+          "@EndUserText.label": "Statistics Currency",
+          "key": false,
+          "length": 5,
+          "type": "cds.String"
+        },
+        "UPD_TMSTMP": {
+          "@EndUserText.label": "Update Timestamp",
+          "key": false,
+          "precision": 21,
+          "scale": 0,
+          "type": "cds.Decimal"
+        },
+        "VBELN": {
+          "@EndUserText.label": "Sales Document Number",
+          "key": true,
+          "length": 10,
+          "notNull": true,
+          "type": "cds.String"
+        },
+        "VBTYP": {
+          "@EndUserText.label": "Sales Document Category",
+          "key": false,
+          "length": 1,
+          "type": "cds.String"
+        },
+        "VDATU": {
+          "@EndUserText.label": "Requested Delivery Date",
+          "key": false,
+          "type": "cds.Date"
+        },
+        "VKBUR": {
+          "@EndUserText.label": "Sales Office",
+          "key": false,
+          "length": 4,
+          "type": "cds.String"
+        },
+        "VKGRP": {
+          "@EndUserText.label": "Sales Group",
+          "key": false,
+          "length": 3,
+          "type": "cds.String"
+        },
+        "VKORG": {
+          "@EndUserText.label": "Sales Organization",
+          "key": false,
+          "length": 4,
+          "type": "cds.String"
+        },
+        "VSBED": {
+          "@EndUserText.label": "Shipping Conditions",
+          "key": false,
+          "length": 2,
+          "type": "cds.String"
+        },
+        "VSNMR_V": {
+          "@EndUserText.label": "Version Number",
+          "key": false,
+          "length": 10,
+          "type": "cds.String"
+        },
+        "VTWEG": {
+          "@EndUserText.label": "Distribution Channel",
+          "key": false,
+          "length": 2,
+          "type": "cds.String"
+        },
+        "WAERK": {
+          "@EndUserText.label": "Document Currency",
+          "key": false,
+          "length": 5,
+          "type": "cds.String"
+        },
+        "ZZSALES_PERSON": {
+          "@EndUserText.label": "Sales Person",
+          "key": false,
+          "length": 20,
+          "type": "cds.String"
+        }
+      },
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "columns": [
+            {
+              "ref": [
+                "VBELN"
+              ]
+            },
+            {
+              "ref": [
+                "AUART"
+              ]
+            },
+            {
+              "ref": [
+                "AUGRU"
+              ]
+            },
+            {
+              "ref": [
+                "BUKRS"
+              ]
+            },
+            {
+              "ref": [
+                "ERDAT"
+              ]
+            },
+            {
+              "ref": [
+                "FAKSK"
+              ]
+            },
+            {
+              "ref": [
+                "HWAER"
+              ]
+            },
+            {
+              "ref": [
+                "KUNNR"
+              ]
+            },
+            {
+              "ref": [
+                "KURST"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR1"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR2"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR3"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR4"
+              ]
+            },
+            {
+              "ref": [
+                "KVGR5"
+              ]
+            },
+            {
+              "ref": [
+                "LIFSK"
+              ]
+            },
+            {
+              "ref": [
+                "PVRTNR"
+              ]
+            },
+            {
+              "ref": [
+                "STWAE"
+              ]
+            },
+            {
+              "ref": [
+                "VBTYP"
+              ]
+            },
+            {
+              "ref": [
+                "VDATU"
+              ]
+            },
+            {
+              "ref": [
+                "VKBUR"
+              ]
+            },
+            {
+              "ref": [
+                "VKGRP"
+              ]
+            },
+            {
+              "ref": [
+                "VKORG"
+              ]
+            },
+            {
+              "ref": [
+                "VTWEG"
+              ]
+            },
+            {
+              "ref": [
+                "WAERK"
+              ]
+            },
+            {
+              "ref": [
+                "AEDAT"
+              ]
+            },
+            {
+              "ref": [
+                "AUDAT"
+              ]
+            },
+            {
+              "ref": [
+                "AUFNR"
+              ]
+            },
+            {
+              "ref": [
+                "AUTLF"
+              ]
+            },
+            {
+              "ref": [
+                "BSARK"
+              ]
+            },
+            {
+              "ref": [
+                "CMWAE"
+              ]
+            },
+            {
+              "ref": [
+                "ERNAM"
+              ]
+            },
+            {
+              "ref": [
+                "ERZET"
+              ]
+            },
+            {
+              "ref": [
+                "KOKRS"
+              ]
+            },
+            {
+              "ref": [
+                "KOSTL"
+              ]
+            },
+            {
+              "ref": [
+                "KTEXT"
+              ]
+            },
+            {
+              "ref": [
+                "LAND1"
+              ]
+            },
+            {
+              "ref": [
+                "LAST_CHANGED_BY_USER"
+              ]
+            },
+            {
+              "ref": [
+                "MANDT"
+              ]
+            },
+            {
+              "ref": [
+                "NETWR"
+              ]
+            },
+            {
+              "ref": [
+                "OBJNR"
+              ]
+            },
+            {
+              "ref": [
+                "PKUNRE"
+              ]
+            },
+            {
+              "ref": [
+                "PKUNRG"
+              ]
+            },
+            {
+              "ref": [
+                "PKUNWE"
+              ]
+            },
+            {
+              "ref": [
+                "SPART"
+              ]
+            },
+            {
+              "ref": [
+                "UPD_TMSTMP"
+              ]
+            },
+            {
+              "ref": [
+                "VSBED"
+              ]
+            },
+            {
+              "ref": [
+                "VSNMR_V"
+              ]
+            },
+            {
+              "ref": [
+                "SPARA"
+              ]
+            },
+            {
+              "ref": [
+                "ANZAU"
+              ]
+            },
+            {
+              "ref": [
+                "PERIV"
+              ]
+            },
+            {
+              "ref": [
+                "ZZSALES_PERSON"
+              ]
+            },
+            {
+              "ref": [
+                "ODQ_CHANGEMODE"
+              ]
+            },
+            {
+              "ref": [
+                "ODQ_ENTITYCNTR"
+              ]
+            }
+          ],
+          "from": {
+            "ref": [
+              "Transfor_View_2lis_Delta"
+            ]
+          },
+          "where": [
+            {
+              "ref": [
+                "Change_Type"
+              ]
+            },
+            "not",
+            "in",
+            {
+              "list": [
+                {
+                  "val": "D"
+                },
+                {
+                  "val": "M"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
