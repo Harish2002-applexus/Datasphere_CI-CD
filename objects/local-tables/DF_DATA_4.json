@@ -1,0 +1,33 @@
+{
+  "definitions": {
+    "DF_DATA_4": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_f1c0a28a-dbcc-4029-9394-397bc59bb821_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "DF DATA 4",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "Business": {
+          "@EndUserText.label": "Business",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Date": {
+          "@EndUserText.label": "Date",
+          "type": "cds.Date"
+        },
+        "Value": {
+          "@EndUserText.label": "Value",
+          "type": "cds.Integer64"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
