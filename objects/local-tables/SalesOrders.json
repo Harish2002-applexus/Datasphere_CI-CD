@@ -1,0 +1,102 @@
+{
+  "definitions": {
+    "SalesOrders": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_291bf1c1-fdba-494b-b7ad-98b95274e1e7_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "SalesOrders",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "BILLINGSTATUS": {
+          "@EndUserText.label": "BILLINGSTATUS",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "CHANGEDAT": {
+          "@EndUserText.label": "CHANGEDAT",
+          "type": "cds.Date"
+        },
+        "CHANGEDBY": {
+          "@EndUserText.label": "CHANGEDBY",
+          "type": "cds.Integer64"
+        },
+        "CREATEDAT": {
+          "@EndUserText.label": "CREATEDAT",
+          "type": "cds.Date"
+        },
+        "CREATEDBY": {
+          "@EndUserText.label": "CREATEDBY",
+          "type": "cds.Integer64"
+        },
+        "CURRENCY": {
+          "@EndUserText.label": "CURRENCY",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "DELIVERYSTATUS": {
+          "@EndUserText.label": "DELIVERYSTATUS",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FISCALYEARPERIOD": {
+          "@EndUserText.label": "FISCALYEARPERIOD",
+          "type": "cds.Integer64"
+        },
+        "FISCVARIANT": {
+          "@EndUserText.label": "FISCVARIANT",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "GROSSAMOUNT": {
+          "@EndUserText.label": "GROSSAMOUNT",
+          "precision": 38,
+          "scale": 19,
+          "type": "cds.Decimal"
+        },
+        "LIFECYCLESTATUS": {
+          "@EndUserText.label": "LIFECYCLESTATUS",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "NETAMOUNT": {
+          "@EndUserText.label": "NETAMOUNT",
+          "precision": 38,
+          "scale": 19,
+          "type": "cds.Decimal"
+        },
+        "NOTEID": {
+          "@EndUserText.label": "NOTEID",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "PARTNERID": {
+          "@EndUserText.label": "PARTNERID",
+          "type": "cds.Integer64"
+        },
+        "SALESORDERID": {
+          "@EndUserText.label": "SALESORDERID",
+          "key": true,
+          "type": "cds.Integer64"
+        },
+        "SALESORG": {
+          "@EndUserText.label": "SALESORG",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "TAXAMOUNT": {
+          "@EndUserText.label": "TAXAMOUNT",
+          "precision": 38,
+          "scale": 19,
+          "type": "cds.Decimal"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
