@@ -1,0 +1,36 @@
+{
+  "definitions": {
+    "DF_TARGET_2": {
+      "@EndUserText.label": "DF_TARGET_2",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "NAME": {
+          "@EndUserText.label": "NAME",
+          "key": false,
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "ROLL_NO": {
+          "@EndUserText.label": "ROLL_NO",
+          "key": true,
+          "length": 5000,
+          "notNull": true,
+          "type": "cds.String"
+        },
+        "VALUE": {
+          "@EndUserText.label": "VALUE",
+          "key": false,
+          "type": "cds.Integer64"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
