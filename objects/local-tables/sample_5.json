@@ -33,6 +33,11 @@
           "length": 5000,
           "type": "cds.String"
         },
+        "SNO": {
+          "@EndUserText.label": "S.NO",
+          "length": 100,
+          "type": "cds.String"
+        },
         "Sales": {
           "@EndUserText.label": "Sales",
           "type": "cds.Integer64"
