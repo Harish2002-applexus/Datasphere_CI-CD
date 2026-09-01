@@ -1,0 +1,44 @@
+{
+  "definitions": {
+    "sample_5": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_48bb976a-953c-432b-8a50-a8d34ed53cea_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "sample_5",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "City": {
+          "@EndUserText.label": "City",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Customer_ID": {
+          "@EndUserText.label": "Customer_ID",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Customer_Name": {
+          "@EndUserText.label": "Customer_Name",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Product": {
+          "@EndUserText.label": "Product",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Sales": {
+          "@EndUserText.label": "Sales",
+          "type": "cds.Integer64"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
