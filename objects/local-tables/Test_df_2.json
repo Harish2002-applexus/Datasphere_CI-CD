@@ -1,0 +1,30 @@
+{
+  "definitions": {
+    "Test_df_2": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_7143a655-aa7e-46c9-b939-6dfbd8f99507_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "Test_df_2",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "File Upload": {
+          "@EndUserText.label": "File Upload",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Run": {
+          "@EndUserText.label": "Run",
+          "length": 5000,
+          "type": "cds.String"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
