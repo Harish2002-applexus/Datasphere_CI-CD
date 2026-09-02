@@ -1,0 +1,25 @@
+{
+  "definitions": {
+    "Test_df": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_75680105-e97f-4015-a111-e7c6470dd14a_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "Test_df",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "Run": {
+          "@EndUserText.label": "Run",
+          "length": 5000,
+          "type": "cds.String"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
