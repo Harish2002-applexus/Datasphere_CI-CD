@@ -1,0 +1,39 @@
+{
+  "definitions": {
+    "Type_Testing": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_2281fd64-7060-4244-9602-6620b4104318_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "Type_Testing",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "Plant": {
+          "@EndUserText.label": "Plant",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Qty": {
+          "@EndUserText.label": "Qty",
+          "type": "cds.Integer64"
+        },
+        "Target_Plant": {
+          "@EndUserText.label": "Target_Plant",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Type": {
+          "@EndUserText.label": "Type",
+          "length": 5000,
+          "type": "cds.String"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
