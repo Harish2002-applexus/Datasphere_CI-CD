@@ -1,0 +1,39 @@
+{
+  "definitions": {
+    "exp": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_7fe5a63a-2680-4736-83ed-c029fbe5cc84_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "exp",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "Date": {
+          "@EndUserText.label": "Date",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "DateTime": {
+          "@EndUserText.label": "DateTime",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Time": {
+          "@EndUserText.label": "Time",
+          "type": "cds.Time"
+        },
+        "TimeStamp": {
+          "@EndUserText.label": "TimeStamp",
+          "length": 5000,
+          "type": "cds.String"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
