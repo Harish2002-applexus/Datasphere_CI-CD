@@ -1,0 +1,328 @@
+{
+  "definitions": {
+    "MAX_Eq_Details": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_86b50486-97d4-4b49-b6f8-d5cf1d79f2f6_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "MAX_Eq_Details",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "Acquisition_Date": {
+          "@EndUserText.label": "Acquisition_Date",
+          "type": "cds.Date"
+        },
+        "Business Unit": {
+          "@EndUserText.label": "Business Unit",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Changed_Date": {
+          "@EndUserText.label": "Changed_Date",
+          "type": "cds.Date"
+        },
+        "Class_Type": {
+          "@EndUserText.label": "Class_Type",
+          "type": "cds.Integer64"
+        },
+        "Created_Date": {
+          "@EndUserText.label": "Created_Date",
+          "type": "cds.Date"
+        },
+        "Criticality": {
+          "@EndUserText.label": "Criticality",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Eq Number": {
+          "@EndUserText.label": "Eq Number",
+          "type": "cds.Integer64"
+        },
+        "Equip_Class": {
+          "@EndUserText.label": "Equip_Class",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equip_Class_Desc": {
+          "@EndUserText.label": "Equip_Class_Desc",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment Marked for Deletion": {
+          "@EndUserText.label": "Equipment Marked for Deletion",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment_Category": {
+          "@EndUserText.label": "Equipment_Category",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment_Description": {
+          "@EndUserText.label": "Equipment_Description",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment_System_Status": {
+          "@EndUserText.label": "Equipment_System_Status",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment_System_Status_Desc": {
+          "@EndUserText.label": "Equipment_System_Status_Desc",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment_Tag_Number": {
+          "@EndUserText.label": "Equipment_Tag_Number",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment_User_Status": {
+          "@EndUserText.label": "Equipment_User_Status",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Equipment_User_Status_Desc": {
+          "@EndUserText.label": "Equipment_User_Status_Desc",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Changed Date": {
+          "@EndUserText.label": "FLOC Changed Date",
+          "type": "cds.Date"
+        },
+        "FLOC Class Type": {
+          "@EndUserText.label": "FLOC Class Type",
+          "type": "cds.Integer64"
+        },
+        "FLOC Created Date": {
+          "@EndUserText.label": "FLOC Created Date",
+          "type": "cds.Date"
+        },
+        "FLOC Criticality": {
+          "@EndUserText.label": "FLOC Criticality",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Description": {
+          "@EndUserText.label": "FLOC Description",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Maintenance Plant": {
+          "@EndUserText.label": "FLOC Maintenance Plant",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Marked for Deletion": {
+          "@EndUserText.label": "FLOC Marked for Deletion",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Number": {
+          "@EndUserText.label": "FLOC Number",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Object Type": {
+          "@EndUserText.label": "FLOC Object Type",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Object Type Description": {
+          "@EndUserText.label": "FLOC Object Type Description",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Planner Group": {
+          "@EndUserText.label": "FLOC Planner Group",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Planning Plant": {
+          "@EndUserText.label": "FLOC Planning Plant",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Work Center": {
+          "@EndUserText.label": "FLOC Work Center",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "FLOC Work Center Name": {
+          "@EndUserText.label": "FLOC Work Center Name",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Failure_Catalog": {
+          "@EndUserText.label": "Failure_Catalog",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Failure_Catalog_Desc": {
+          "@EndUserText.label": "Failure_Catalog_Desc",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Floc_Class": {
+          "@EndUserText.label": "Floc_Class",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Floc_Class_Desc": {
+          "@EndUserText.label": "Floc_Class_Desc",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Floc_System_Status": {
+          "@EndUserText.label": "Floc_System_Status",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Floc_System_Status_Desc": {
+          "@EndUserText.label": "Floc_System_Status_Desc",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Floc_User_Status": {
+          "@EndUserText.label": "Floc_User_Status",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Floc_User_Status_Desc": {
+          "@EndUserText.label": "Floc_User_Status_Desc",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Functional_Location": {
+          "@EndUserText.label": "Functional_Location",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Functional_Location_Category": {
+          "@EndUserText.label": "Functional_Location_Category",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Functional_Location_Description": {
+          "@EndUserText.label": "Functional_Location_Description",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Functional_Location_Id": {
+          "@EndUserText.label": "Functional_Location_Id",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Main_Workcenter": {
+          "@EndUserText.label": "Main_Workcenter",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Maintenance_Plant": {
+          "@EndUserText.label": "Maintenance_Plant",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Maintenance_Plant_Name": {
+          "@EndUserText.label": "Maintenance_Plant_Name",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Manufacturer": {
+          "@EndUserText.label": "Manufacturer",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Manufacturer_Part_Number": {
+          "@EndUserText.label": "Manufacturer_Part_Number",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Manufacturer_Serial_Number": {
+          "@EndUserText.label": "Manufacturer_Serial_Number",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Material_Number": {
+          "@EndUserText.label": "Material_Number",
+          "type": "cds.Date"
+        },
+        "Material_Serial_Number": {
+          "@EndUserText.label": "Material_Serial_Number",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Model_Number": {
+          "@EndUserText.label": "Model_Number",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Object_Type": {
+          "@EndUserText.label": "Object_Type",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Object_Type_Description": {
+          "@EndUserText.label": "Object_Type_Description",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Parent_Equipment": {
+          "@EndUserText.label": "Parent_Equipment",
+          "type": "cds.Integer64"
+        },
+        "Parent_Equipment_Description": {
+          "@EndUserText.label": "Parent_Equipment_Description",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Planner_Group": {
+          "@EndUserText.label": "Planner_Group",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Planner_Group_Description": {
+          "@EndUserText.label": "Planner_Group_Description",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Planning_Plant": {
+          "@EndUserText.label": "Planning_Plant",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Planning_Plant_Name": {
+          "@EndUserText.label": "Planning_Plant_Name",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Startup_Date": {
+          "@EndUserText.label": "Startup_Date",
+          "type": "cds.Date"
+        },
+        "Superior_Functional_Location": {
+          "@EndUserText.label": "Superior_Functional_Location",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "Valid_From_Date": {
+          "@EndUserText.label": "Valid_From_Date",
+          "type": "cds.Date"
+        },
+        "Valid_To_Date": {
+          "@EndUserText.label": "Valid_To_Date",
+          "length": 5000,
+          "type": "cds.String"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
