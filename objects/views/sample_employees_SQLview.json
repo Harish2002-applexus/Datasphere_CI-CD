@@ -1,0 +1,81 @@
+{
+  "definitions": {
+    "sample_employees_SQLview": {
+      "@DataWarehouse.consumption.external": false,
+      "@DataWarehouse.sqlEditor.query": "SELECT \"CITY\",\"DEPARTMENT\",\"ID\",\"NAME\",\"SALARY\" from sample_employees",
+      "@EndUserText.label": "sample_employees_SQLview",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "CITY": {
+          "@EndUserText.label": "CITY",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "DEPARTMENT": {
+          "@EndUserText.label": "DEPARTMENT",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "ID": {
+          "@EndUserText.label": "ID",
+          "type": "cds.Integer64"
+        },
+        "NAME": {
+          "@EndUserText.label": "NAME",
+          "length": 5000,
+          "type": "cds.String"
+        },
+        "SALARY": {
+          "@EndUserText.label": "SALARY",
+          "precision": 38,
+          "scale": 19,
+          "type": "cds.Decimal"
+        }
+      },
+      "kind": "entity",
+      "query": {
+        "SELECT": {
+          "columns": [
+            {
+              "ref": [
+                "CITY"
+              ]
+            },
+            {
+              "ref": [
+                "DEPARTMENT"
+              ]
+            },
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            {
+              "ref": [
+                "NAME"
+              ]
+            },
+            {
+              "ref": [
+                "SALARY"
+              ]
+            }
+          ],
+          "from": {
+            "ref": [
+              "sample_employees"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
