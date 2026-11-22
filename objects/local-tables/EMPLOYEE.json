@@ -1,0 +1,39 @@
+{
+  "definitions": {
+    "EMPLOYEE": {
+      "@DataWarehouse.dataSource.entity": "sap.dataset.conf_e3fdaec2-eabf-4f22-a1ed-18e828f85334_view",
+      "@DataWarehouse.dataSource.schema": "DEMO_SPACE#WRG_GN26382XDW7UCKG3",
+      "@EndUserText.label": "EMPLOYEE",
+      "@ObjectModel.modelingPattern": {
+        "#": "DATA_STRUCTURE"
+      },
+      "@ObjectModel.supportedCapabilities": [
+        {
+          "#": "DATA_STRUCTURE"
+        }
+      ],
+      "elements": {
+        "ADD": {
+          "@EndUserText.label": "ADD",
+          "length": 30,
+          "type": "cds.String"
+        },
+        "EMP ID": {
+          "@EndUserText.label": "EMP ID",
+          "length": 4,
+          "type": "cds.String"
+        },
+        "EMP NAME": {
+          "@EndUserText.label": "EMP NAME",
+          "length": 20,
+          "type": "cds.String"
+        },
+        "QTY": {
+          "@EndUserText.label": "QTY",
+          "type": "cds.Integer64"
+        }
+      },
+      "kind": "entity"
+    }
+  }
+}
